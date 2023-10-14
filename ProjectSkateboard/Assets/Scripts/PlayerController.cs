@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField, Tooltip("The current player settings.")] private PlayerSettings playerSettings;
     [SerializeField, Tooltip("The layer for objects that can be jumped on.")] private LayerMask groundLayer;
 
-    private enum PlayerMode { GROUND, AIR, RAIL };
+    private enum PlayerMode { GROUND, AIR, GRIND };
 
     private Vector2 movement;
     private bool isGrounded;
@@ -16,7 +16,8 @@ public class PlayerController : MonoBehaviour
     private Transform groundCheck;
     private PlayerMode playerMode = PlayerMode.GROUND;
 
-    private Vector2 railEntryPoint, railDirection;
+    private float railMomentum;
+    private Vector2 railDirection;
 
     private Rigidbody2D rb2D;
     private PlayerControls playerControls;
@@ -67,13 +68,11 @@ public class PlayerController : MonoBehaviour
 
         if (onRail)
         {
-            if (playerMode != PlayerMode.RAIL)
+            if (playerMode != PlayerMode.GRIND)
                 OnStartRail();
         }
 
         playerMode = DeterminePlayerMode();
-
-        Debug.Log("Player Movement: " + playerMode);
     }
 
     private void FixedUpdate()
@@ -135,27 +134,12 @@ public class PlayerController : MonoBehaviour
     private void OnStartRail()
     {
         Debug.Log("Rail Entered!");
-        playerMode = PlayerMode.RAIL;
-        railEntryPoint = groundCheck.position;
-        railDirection = transform.right * (rb2D.velocity.x > 0 ? 1 : -1);
+        playerMode = PlayerMode.GRIND;
+
+        railMomentum = rb2D.velocity.x > 0 ? 1 : -1;
+
+        railDirection = transform.right * railMomentum;
         Debug.DrawRay(groundCheck.position, railDirection, Color.red);
-    }
-
-    private Vector2 CalculateRailExit()
-    {
-        float rayLength = 10f;
-        Vector2 playerPosition = transform.position;
-        Vector2 playerDirection = railDirection;
-
-        // Extend a ray to detect the exit point.
-        RaycastHit2D hit = Physics2D.Raycast(playerPosition, playerDirection, rayLength, groundLayer);
-
-        if (hit.collider != null)
-            return hit.point;
-
-        // If the ray doesn't hit the rail, return an alternative exit point
-        else
-            return playerPosition + playerDirection * rayLength;
     }
 
     private void RailMovement()
@@ -164,8 +148,8 @@ public class PlayerController : MonoBehaviour
         Vector2 railNormal = GetRailNormal(); // Implement this function to get the rail's normal vector.
 
         // Calculate the movement direction based on the rail normal
-        Vector2 moveDirection = new Vector2(railNormal.y, -railNormal.x); // 90-degree rotation of the rail normal
-        Vector2 moveForce = moveDirection * playerSettings.railSpeed;
+        Vector2 moveDirection = new Vector2(railNormal.y, -railNormal.x);
+        Vector2 moveForce = moveDirection * railMomentum * playerSettings.railSpeed;
         transform.position = new Vector2(transform.position.x, transform.position.y) + moveForce * Time.fixedDeltaTime;
     }
 
@@ -192,7 +176,7 @@ public class PlayerController : MonoBehaviour
     private PlayerMode DeterminePlayerMode()
     {
         if (onRail)
-            return PlayerMode.RAIL;
+            return PlayerMode.GRIND;
 
         if (!isGrounded)
             return PlayerMode.AIR;

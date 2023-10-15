@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Ollie
   score: 750
+  comboRequirement: 01000000

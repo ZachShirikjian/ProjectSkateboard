@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Kickflip
   score: 1500
+  comboRequirement: 0100000002000000

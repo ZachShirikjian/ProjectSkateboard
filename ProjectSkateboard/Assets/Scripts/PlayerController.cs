@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -12,6 +11,7 @@ public class PlayerController : MonoBehaviour
 
     public static Action<Combo> OnComboSuccess;
     public static Action OnPlayerGrounded;
+    public static Action<float> OnHypeTimeActivated;
 
     [Header("Debug Settings")]
     [SerializeField] private bool debugCombo;
@@ -25,6 +25,12 @@ public class PlayerController : MonoBehaviour
     private Transform groundCheck;
     private PlayerMode playerMode = PlayerMode.GROUND;
 
+    private List<Combo.ComboKey> currentComboInput = new List<Combo.ComboKey>();
+    private Combo currentCombo;
+    private float currentComboCooldown;
+    private bool comboInputActive;
+    private bool hypeTimeReady;
+
     private float railMomentum;
     private Vector2 railDirection;
 
@@ -35,6 +41,10 @@ public class PlayerController : MonoBehaviour
     {
         playerControls = new PlayerControls();
         playerControls.Player.Jump.performed += _ => Jump();
+        playerControls.Player.AirTrick1.performed += OnTrickButton;
+        playerControls.Player.AirTrick2.performed += OnTrickButton;
+        playerControls.Player.GrindTrick.performed += OnTrickButton;
+        playerControls.Player.HypeTime.performed += _ => OnHypeTime();
     }
 
     private void Start()
@@ -46,11 +56,13 @@ public class PlayerController : MonoBehaviour
     private void OnEnable()
     {
         playerControls?.Enable();
+        HypeController.HypeMeterFull += ReadyHypeTime;
     }
 
     private void OnDisable()
     {
         playerControls?.Disable();
+        HypeController.HypeMeterFull -= ReadyHypeTime;
     }
 
     private void Update()
@@ -95,9 +107,18 @@ public class PlayerController : MonoBehaviour
 
         playerMode = checkPlayerMode;
 
+        if (comboInputActive)
+        {
+            if (currentComboCooldown < playerSettings.comboInputDelay)
+                currentComboCooldown += Time.deltaTime;
+            else
+                PerformCombo();
+        }
+
         if (debugCombo)
         {
-            OnComboSuccess?.Invoke(debugComboInfo);
+            currentCombo = debugComboInfo;
+            PerformCombo();
             OnPlayerGrounded?.Invoke();
             debugCombo = false;
         }
@@ -129,6 +150,88 @@ public class PlayerController : MonoBehaviour
         RotatePlayerOrientation();
     }
 
+    /// <summary>
+    /// Function called when a trick button is performed.
+    /// </summary>
+    private void OnTrickButton(InputAction.CallbackContext ctx)
+    {
+        if(playerMode != PlayerMode.GROUND)
+        {
+            switch (ctx.action.name)
+            {
+                case "Air Trick 1":
+                    currentComboInput.Add(Combo.ComboKey.TRICKONE);
+                    break;
+                case "Air Trick 2":
+                    currentComboInput.Add(Combo.ComboKey.TRICKTWO);
+                    break;
+                case "Grind Trick":
+                    currentComboInput.Add(Combo.ComboKey.GRINDTRICK);
+                    break;
+            }
+
+            comboInputActive = true;
+            CheckCombo();
+        }
+    }
+
+    /// <summary>
+    /// Activates hype time when it's ready.
+    /// </summary>
+    private void OnHypeTime()
+    {
+        if (hypeTimeReady)
+        {
+            OnHypeTimeActivated?.Invoke(playerSettings.hypeModeTime);
+            hypeTimeReady = false;
+        }
+    }
+
+    private void CheckCombo()
+    {
+        foreach(Combo combo in comboList)
+        {
+            //Continue if the current combo does not match the length
+            if (currentComboInput.Count != combo.comboRequirement.Length)
+                continue;
+
+            bool comboMatched = true;
+            for(int i = 0; i < combo.comboRequirement.Length; i++)
+            {
+                if (combo.comboRequirement[i] != currentComboInput[i])
+                {
+                    comboMatched = false;
+                    break;
+                }
+            }
+
+            if (comboMatched)
+            {
+                currentCombo = combo;
+                currentComboCooldown = 0;
+                break;
+            }
+        }
+    }
+
+    /// <summary>
+    /// Tries to perform the combo stored.
+    /// </summary>
+    private void PerformCombo()
+    {
+        if(currentCombo != null)
+        {
+            OnComboSuccess?.Invoke(currentCombo);
+        }
+
+        currentCombo = null;
+        currentComboInput.Clear();
+        comboInputActive = false;
+    }
+
+    /// <summary>
+    /// Rotates the player according to the surface that they are grounded on.
+    /// </summary>
     private void RotatePlayerOrientation()
     {
         Vector2 origin = groundCheck.position;
@@ -156,6 +259,9 @@ public class PlayerController : MonoBehaviour
             rb2D.AddForce(transform.up * playerSettings.jumpForce, ForceMode2D.Impulse);
     }
 
+    private void ReadyHypeTime() => hypeTimeReady = true;
+    private void UnreadyHypeTime() => hypeTimeReady = false;
+
     /// <summary>
     /// Function called when the player enters a rail.
     /// </summary>
@@ -176,7 +282,7 @@ public class PlayerController : MonoBehaviour
     private void RailMovement()
     {
         // Get the rail's normal vector
-        Vector2 railNormal = GetRailNormal(); // Implement this function to get the rail's normal vector.
+        Vector2 railNormal = GetRailNormal();
 
         // Calculate the movement direction based on the rail normal
         Vector2 moveDirection = new Vector2(railNormal.y, -railNormal.x);
@@ -184,6 +290,10 @@ public class PlayerController : MonoBehaviour
         transform.position = new Vector2(transform.position.x, transform.position.y) + moveForce * Time.fixedDeltaTime;
     }
 
+    /// <summary>
+    /// Gets the vector of the rail's surface.
+    /// </summary>
+    /// <returns>The vector of the rail's surface, showing its angle.</returns>
     private Vector2 GetRailNormal()
     {
         Vector2 origin = groundCheck.position;

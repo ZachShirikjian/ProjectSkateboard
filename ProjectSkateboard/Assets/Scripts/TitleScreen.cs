@@ -4,17 +4,17 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class TitleScreen : MonoBehaviour
 {
-    //Reference to CreditsPanel
-    public GameObject creditsPanel;
+    [Tooltip("Reference to Credits Panel")] public GameObject creditsPanel;
+
     // Start is called before the first frame update
     void Start()
     {
         creditsPanel.SetActive(false);
     }
 
-    public void StartGame()
+    public void StartGame(string sceneName)
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(sceneName);
     }
 
     public void OpenCredits()
@@ -30,5 +30,8 @@ public class TitleScreen : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
     }
 }

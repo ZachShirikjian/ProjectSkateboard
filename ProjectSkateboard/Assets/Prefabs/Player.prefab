@@ -230,6 +230,8 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  debugCombo: 0
+  debugComboInfo: {fileID: 11400000, guid: 02d59f2e31108574aae163ef78c6de4f, type: 2}
 --- !u!114 &3072209324584704685
 MonoBehaviour:
   m_ObjectHideFlags: 0

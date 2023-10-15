@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,14 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField, Tooltip("The current player settings.")] private PlayerSettings playerSettings;
     [SerializeField, Tooltip("The layer for objects that can be jumped on.")] private LayerMask groundLayer;
+    [SerializeField, Tooltip("The master list of possible combos.")] private Combo[] comboList;
+
+    public static Action<Combo> OnComboSuccess;
+    public static Action OnPlayerGrounded;
+
+    [Header("Debug Settings")]
+    [SerializeField] private bool debugCombo;
+    [SerializeField] private Combo debugComboInfo;
 
     private enum PlayerMode { GROUND, AIR, GRIND };
 
@@ -72,7 +81,26 @@ public class PlayerController : MonoBehaviour
                 OnStartRail();
         }
 
-        playerMode = DeterminePlayerMode();
+        PlayerMode checkPlayerMode = DeterminePlayerMode();
+
+        if(playerMode != checkPlayerMode)
+        {
+            switch (checkPlayerMode)
+            {
+                case PlayerMode.GROUND:
+                    OnPlayerGrounded?.Invoke();
+                    break;
+            }
+        }
+
+        playerMode = checkPlayerMode;
+
+        if (debugCombo)
+        {
+            OnComboSuccess?.Invoke(debugComboInfo);
+            OnPlayerGrounded?.Invoke();
+            debugCombo = false;
+        }
     }
 
     private void FixedUpdate()
@@ -140,6 +168,9 @@ public class PlayerController : MonoBehaviour
 
         railDirection = transform.right * railMomentum;
         Debug.DrawRay(groundCheck.position, railDirection, Color.red);
+
+        //Start grind combo
+        OnComboSuccess?.Invoke(comboList[6]);
     }
 
     private void RailMovement()

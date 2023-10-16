@@ -18,16 +18,16 @@ public class GameTimer : MonoBehaviour
     }
 
     /// <summary>
-    /// Initializes a starting time and starts the timer.
+    /// Initializes a starting time.
     /// </summary>
     /// <param name="timerSeconds">The time to start the countdown at (in seconds).</param>
     public void InitializeTimer(float timerSeconds)
     {
         currentTimeLeft = timerSeconds;
-        StartTimer();
+        timerText.text = TimeToString(currentTimeLeft - 1);
     }
 
-    private void StartTimer() => timerActive = true;
+    public void StartTimer() => timerActive = true;
 
     public void EndTimer()
     {

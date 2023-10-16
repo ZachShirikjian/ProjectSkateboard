@@ -57,16 +57,21 @@ public class PlayerController : MonoBehaviour
     {
         playerControls?.Enable();
         HypeController.HypeMeterFull += ReadyHypeTime;
+        HypeController.HypeTimeEnd += UnreadyHypeTime;
     }
 
     private void OnDisable()
     {
         playerControls?.Disable();
         HypeController.HypeMeterFull -= ReadyHypeTime;
+        HypeController.HypeTimeEnd -= UnreadyHypeTime;
     }
 
     private void Update()
     {
+        if (LevelManager.Instance != null && !LevelManager.Instance.IsGameActive())
+            return;
+
         Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheck.position, 0.1f, groundLayer);
 
         isGrounded = colliders.Length > 0;
@@ -126,6 +131,9 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (LevelManager.Instance != null && !LevelManager.Instance.IsGameActive())
+            return;
+
         if (!onRail)
         {
             //Move the player based on player input
@@ -256,7 +264,10 @@ public class PlayerController : MonoBehaviour
     private void Jump()
     {
         if (isGrounded)
+        {
             rb2D.AddForce(transform.up * playerSettings.jumpForce, ForceMode2D.Impulse);
+            GameManager.Instance.AudioManager.PlayOneShot(AudioManager.GameSound.Sound.PlayerJump);
+        }
     }
 
     private void ReadyHypeTime() => hypeTimeReady = true;

@@ -97,6 +97,8 @@ public class ComboManager : MonoBehaviour
         hypeTimeMultiplierText.text = addHypeMultiplier ? "x" + hypeTimeMultiplier.ToString("F1") : "";
         totalComboScore.text = (currentComboScore * currentComboMultiplier).ToString();
 
+        GameManager.Instance.AudioManager.PlayOneShot(AudioManager.GameSound.Sound.TrickSuccess);
+
         OnMultiplierUpdated?.Invoke(1);
 
         cooldownBarParent.SetActive(false);
@@ -124,6 +126,7 @@ public class ComboManager : MonoBehaviour
         cooldownBarParent.SetActive(false);
         comboActive = false;
         EndComboAnimation();
+        GameManager.Instance.AudioManager.PlayOneShot(AudioManager.GameSound.Sound.ComboEnd);
     }
 
     private void StartComboAnimation()

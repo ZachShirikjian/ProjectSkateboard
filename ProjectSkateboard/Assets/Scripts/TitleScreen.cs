@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 public class TitleScreen : MonoBehaviour
 {
     [Tooltip("Reference to Credits Panel")] public GameObject creditsPanel;
@@ -14,7 +13,7 @@ public class TitleScreen : MonoBehaviour
 
     public void StartGame(string sceneName)
     {
-        SceneManager.LoadScene(sceneName);
+        GameManager.Instance.LoadScene(sceneName);
     }
 
     public void OpenCredits()

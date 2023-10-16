@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+public enum TimeOfDay { DAY, NIGHT }
+
 public class LevelManager : MonoBehaviour
 {
-    public static LevelManager Instance;
+    public static LevelManager Instance { get; private set; }
 
     [SerializeField, Tooltip("The amount of time allotted for the level (in seconds).")] private float levelTime = 60f;
+    [SerializeField, Tooltip("The time of day for the level.")] private TimeOfDay levelTimeOfDay;
 
     [SerializeField, Tooltip("The game score.")] private ScoreManager gameScore;
     [SerializeField, Tooltip("The game timer.")] private GameTimer gameTimer;
@@ -16,6 +19,8 @@ public class LevelManager : MonoBehaviour
     public bool debugAddScore = false;
     public float debugScoreValue = 1000;
 
+    private bool isGameActive = false;
+
     private void Awake()
     {
         Instance = this;
@@ -23,7 +28,7 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        gameTimer.InitializeTimer(levelTime);
+        gameTimer?.InitializeTimer(levelTime);
     }
 
     private void OnEnable()
@@ -36,6 +41,12 @@ public class LevelManager : MonoBehaviour
     {
         GameTimer.OnTimerEnded -= EndLevel;
         ComboManager.OnComboEnd -= AddComboToScore;
+    }
+
+    public void StartLevel()
+    {
+        isGameActive = true;
+        gameTimer?.StartTimer();
     }
 
     private void Update()
@@ -53,11 +64,14 @@ public class LevelManager : MonoBehaviour
     /// <param name="comboScore">The current combo score.</param>
     private void AddComboToScore(int comboScore)
     {
-        gameScore.AddToScore(comboScore);
+        gameScore?.AddToScore(comboScore);
     }
 
     private void EndLevel()
     {
         Debug.Log("Level Ended!");
     }
+
+    public TimeOfDay GetTimeOfDay() => levelTimeOfDay;
+    public bool IsGameActive() => isGameActive;
 }

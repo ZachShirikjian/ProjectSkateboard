@@ -1,19 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 public class TitleScreen : MonoBehaviour
 {
-    [Tooltip("Reference to Credits Panel")] public GameObject creditsPanel;
-
+    //Reference to CreditsPanel
+    public GameObject creditsPanel;
+    public GameObject controlsPanel;
     // Start is called before the first frame update
     void Start()
     {
         creditsPanel.SetActive(false);
+        controlsPanel.SetActive(false);
     }
 
-    public void StartGame(string sceneName)
+    public void StartGame()
     {
-        GameManager.Instance.LoadScene(sceneName);
+        SceneManager.LoadScene(1);
+    }
+
+    public void OpenControls()
+    {
+        controlsPanel.SetActive(true);
+    }
+
+    public void CloseControls()
+    {
+        controlsPanel.SetActive(false);
     }
 
     public void OpenCredits()
@@ -29,8 +42,5 @@ public class TitleScreen : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#endif
     }
 }

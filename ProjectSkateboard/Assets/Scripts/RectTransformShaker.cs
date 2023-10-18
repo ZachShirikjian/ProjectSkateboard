@@ -1,26 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
-public class TextShaker : MonoBehaviour
+[RequireComponent(typeof(RectTransform))]
+public class RectTransformShaker : MonoBehaviour
 {
-    [SerializeField, Tooltip("The speed of the text shake (how often it shakes).")] private float shakeSpeed = 5.0f;
+    [SerializeField, Tooltip("The speed of the transform shake (how often it shakes).")] private float shakeSpeed = 5.0f;
     [SerializeField, Tooltip("The magnitude of the shake (how strong the shake is).")] float shakeMagnitude = 0.1f;
     [SerializeField, Tooltip("The seed for the perlin noise.")] private Vector2 perlinNoiseSeed = new Vector2(0, 1);
 
     private Vector3 initialPosition;
-    private TextMeshProUGUI textMesh;
+    private RectTransform rectTransform;
 
     private void Awake()
     {
-        textMesh = GetComponent<TextMeshProUGUI>();
-        initialPosition = textMesh.rectTransform.anchoredPosition;
+        rectTransform = GetComponent<RectTransform>();
+        initialPosition = rectTransform.anchoredPosition;
     }
 
     private void OnEnable()
     {
-        textMesh.rectTransform.anchoredPosition = initialPosition;
+        rectTransform.anchoredPosition = initialPosition;
     }
 
     void Update()
@@ -31,6 +31,6 @@ public class TextShaker : MonoBehaviour
 
         //Apply the perlin noise to the text's anchored position
         Vector2 newPosition = initialPosition + new Vector3(xNoise, yNoise) * shakeMagnitude;
-        textMesh.rectTransform.anchoredPosition = newPosition;
+        rectTransform.anchoredPosition = newPosition;
     }
 }

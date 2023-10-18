@@ -14,9 +14,9 @@ public class TitleScreen : MonoBehaviour
         controlsPanel.SetActive(false);
     }
 
-    public void StartGame()
+    public void StartGame(string sceneName)
     {
-        SceneManager.LoadScene(1);
+        GameManager.Instance.LoadScene(sceneName);
     }
 
     public void OpenControls()
@@ -42,5 +42,8 @@ public class TitleScreen : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
     }
 }

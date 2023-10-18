@@ -29,8 +29,6 @@ public class GoalLevelProgressController : MonoBehaviour
     /// <param name="progress">The progress of the objective (from 0 to 1).</param>
     public void UpdateProgressBar(float progress)
     {
-        Debug.Log("Updating Progress...");
-
         progressBarImage.fillAmount = Mathf.Clamp01(progress);
 
         //Tell the LevelManager that the goal has been achieved

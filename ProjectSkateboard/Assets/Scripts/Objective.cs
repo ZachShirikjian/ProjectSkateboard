@@ -17,7 +17,7 @@ public class Objective : ScriptableObject
         switch (objectiveType.objectiveGoalType)
         {
             case GoalType.Score:
-                objectiveGoalText += scoreValue.ToString() + " Points";
+                objectiveGoalText += scoreValue.ToString("n0") + " Points";
                 break;
             case GoalType.Escape:
                 objectiveGoalText += "Survive For " + timeLimit.ToString() + " Seconds";

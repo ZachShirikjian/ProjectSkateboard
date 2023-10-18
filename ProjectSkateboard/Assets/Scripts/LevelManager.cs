@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,12 +16,17 @@ public class LevelManager : MonoBehaviour
     [SerializeField, Tooltip("The game timer.")] private GameTimer gameTimer;
     [SerializeField, Tooltip("The starting objective object.")] private StartingObjectiveManager startingObjectiveManager;
     [field: SerializeField, Tooltip("The goal progress bar.")] public GoalLevelProgressController progressBar { get; private set; }
+    [SerializeField, Tooltip("The level results screen.")] private LevelResultsScreenController levelResultsScreenController;
+
+    public static Action OnLevelWin;
+    public static Action OnLevelFailed;
 
     [Header("Debug Settings")]
     public bool debugAddScore = false;
     public float debugScoreValue = 1000;
 
     private bool isGameActive = false;
+    private bool levelEnded = false;
     private bool levelCleared = false;
 
     private void Awake()
@@ -31,6 +37,7 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         gameTimer?.InitializeTimer(levelObjective.timeLimit);
+        levelResultsScreenController.gameObject.SetActive(false);
     }
 
     private void OnEnable()
@@ -83,18 +90,18 @@ public class LevelManager : MonoBehaviour
     private void EndLevel()
     {
         isGameActive = false;
-        if (levelCleared)
-        {
-            Debug.Log("You Win!");
-        }
+        levelEnded = true;
 
+        levelResultsScreenController.gameObject.SetActive(true);
+
+        if (levelCleared)
+            OnLevelWin?.Invoke();
         else
-        {
-            Debug.Log("You Fail!");
-        }
+            OnLevelFailed?.Invoke();
     }
 
     public TimeOfDay GetTimeOfDay() => levelObjective.objectiveType.TimeOfDay;
     public bool IsGameActive() => isGameActive;
     public bool IsLevelCleared() => levelCleared;
+    public bool HasLevelEnded() => levelEnded;
 }

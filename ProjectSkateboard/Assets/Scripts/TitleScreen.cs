@@ -6,15 +6,27 @@ public class TitleScreen : MonoBehaviour
 {
     //Reference to CreditsPanel
     public GameObject creditsPanel;
+    public GameObject controlsPanel;
     // Start is called before the first frame update
     void Start()
     {
         creditsPanel.SetActive(false);
+        controlsPanel.SetActive(false);
     }
 
     public void StartGame()
     {
         SceneManager.LoadScene(1);
+    }
+
+    public void OpenControls()
+    {
+        controlsPanel.SetActive(true);
+    }
+
+    public void CloseControls()
+    {
+        controlsPanel.SetActive(false);
     }
 
     public void OpenCredits()

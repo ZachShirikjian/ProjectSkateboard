@@ -33,6 +33,14 @@ public class ScoreManager : MonoBehaviour
             //Make sure the display score ends up as the current score
             if (progress >= 1.0f)
                 displayScore = currentScore;
+
+            //Skip to the current score if the game ends
+            if(!LevelManager.Instance.IsGameActive())
+                displayScore = currentScore;
+
+            //If the current objective is to obtain a score and the level has not been cleared yet, update the progress bar
+            if (LevelManager.Instance?.levelObjective.objectiveType.objectiveGoalType == GoalType.Score && !LevelManager.Instance.IsLevelCleared())
+                LevelManager.Instance.progressBar.UpdateProgressBar(displayScore / LevelManager.Instance.levelObjective.scoreValue);
         }
 
         UpdateScoreDisplay();
@@ -49,5 +57,5 @@ public class ScoreManager : MonoBehaviour
     }
 
     private float CalculateTransitionDuration() => Mathf.Lerp(minScoreAnimationDuration, maxScoreAnimationDuration, Mathf.Abs(currentScore - displayScore) / scoreAnimationDurationRange);
-    private void UpdateScoreDisplay() => scoreText.text = displayScore.ToString();
+    private void UpdateScoreDisplay() => scoreText.text = displayScore.ToString("n0");
 }

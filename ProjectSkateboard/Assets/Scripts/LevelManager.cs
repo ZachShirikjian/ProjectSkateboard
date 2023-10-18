@@ -9,17 +9,19 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance { get; private set; }
 
-    [SerializeField, Tooltip("The amount of time allotted for the level (in seconds).")] private float levelTime = 60f;
-    [SerializeField, Tooltip("The time of day for the level.")] private TimeOfDay levelTimeOfDay;
+    [field:SerializeField, Tooltip("The objective for the level.")] public Objective levelObjective { get; private set; }
 
     [SerializeField, Tooltip("The game score.")] private ScoreManager gameScore;
     [SerializeField, Tooltip("The game timer.")] private GameTimer gameTimer;
+    [SerializeField, Tooltip("The starting objective object.")] private StartingObjectiveManager startingObjectiveManager;
+    [field: SerializeField, Tooltip("The goal progress bar.")] public GoalLevelProgressController progressBar { get; private set; }
 
     [Header("Debug Settings")]
     public bool debugAddScore = false;
     public float debugScoreValue = 1000;
 
     private bool isGameActive = false;
+    private bool levelCleared = false;
 
     private void Awake()
     {
@@ -28,24 +30,33 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        gameTimer?.InitializeTimer(levelTime);
+        gameTimer?.InitializeTimer(levelObjective.timeLimit);
     }
 
     private void OnEnable()
     {
+        TimeTransitionManager.OnTransitionEnded += StartObjectiveCountdown;
+        StartingObjectiveManager.OnCountdownEnded += StartLevel;
         GameTimer.OnTimerEnded += EndLevel;
         ComboManager.OnComboEnd += AddComboToScore;
+        GoalLevelProgressController.OnProgressComplete += ClearLevel;
     }
 
     private void OnDisable()
     {
+        TimeTransitionManager.OnTransitionEnded -= StartObjectiveCountdown;
+        StartingObjectiveManager.OnCountdownEnded -= StartLevel;
         GameTimer.OnTimerEnded -= EndLevel;
         ComboManager.OnComboEnd -= AddComboToScore;
+        GoalLevelProgressController.OnProgressComplete -= ClearLevel;
     }
+
+    public void StartObjectiveCountdown() => startingObjectiveManager?.InitializeObjective(levelObjective);
 
     public void StartLevel()
     {
         isGameActive = true;
+        levelCleared = false;
         gameTimer?.StartTimer();
     }
 
@@ -67,11 +78,23 @@ public class LevelManager : MonoBehaviour
         gameScore?.AddToScore(comboScore);
     }
 
+    private void ClearLevel() => levelCleared = true;
+
     private void EndLevel()
     {
-        Debug.Log("Level Ended!");
+        isGameActive = false;
+        if (levelCleared)
+        {
+            Debug.Log("You Win!");
+        }
+
+        else
+        {
+            Debug.Log("You Fail!");
+        }
     }
 
-    public TimeOfDay GetTimeOfDay() => levelTimeOfDay;
+    public TimeOfDay GetTimeOfDay() => levelObjective.objectiveType.TimeOfDay;
     public bool IsGameActive() => isGameActive;
+    public bool IsLevelCleared() => levelCleared;
 }

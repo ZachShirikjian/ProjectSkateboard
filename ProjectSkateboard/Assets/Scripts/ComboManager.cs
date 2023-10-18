@@ -93,9 +93,9 @@ public class ComboManager : MonoBehaviour
         currentComboMultiplier++;
 
         comboName.text = comboInfo.name;
-        comboScore.text = comboInfo.score.ToString();
+        comboScore.text = comboInfo.score.ToString("n0");
         hypeTimeMultiplierText.text = addHypeMultiplier ? "x" + hypeTimeMultiplier.ToString("F1") : "";
-        totalComboScore.text = (currentComboScore * currentComboMultiplier).ToString();
+        totalComboScore.text = (currentComboScore * currentComboMultiplier).ToString("n0");
 
         GameManager.Instance.AudioManager.PlayOneShot(AudioManager.GameSound.Sound.TrickSuccess);
 
@@ -117,7 +117,7 @@ public class ComboManager : MonoBehaviour
         comboMultiplier.text = "";
         hypeTimeMultiplierText.text = "";
 
-        comboScore.text = currentComboScore.ToString();
+        comboScore.text = currentComboScore.ToString("n0");
 
         currentComboScore = 0;
         currentComboMultiplier = 0;
@@ -176,5 +176,8 @@ public class ComboManager : MonoBehaviour
             else
                 EndCombo();
         }
+
+        if (LevelManager.Instance != null && !LevelManager.Instance.IsGameActive() && comboActive)
+            EndCombo();
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,6 +21,8 @@ public class TimeTransitionManager : MonoBehaviour
 
     [SerializeField, Tooltip("The time it takes for the transition time to fade out.")] private float fadeOutDuration = 3f;
     [SerializeField, Tooltip("The ease type for the fade out transition.")] private LeanTweenType fadeOutEaseType;
+
+    public static Action OnTransitionEnded;
 
     private Image dayActiveImage;
     private Image dayInactiveImage;
@@ -111,10 +114,9 @@ public class TimeTransitionManager : MonoBehaviour
     /// </summary>
     private void FadeOutTimeTransition()
     {
-        LeanTween.delayedCall(transitionDuration + transitionEndDelay, () => LeanTween.alphaCanvas(transitionCanvasGroup, 0f, fadeOutDuration).setEase(fadeOutEaseType).setOnComplete(OnTransitionComplete));
+        LeanTween.delayedCall(transitionDuration + transitionEndDelay, () =>
+            LeanTween.alphaCanvas(transitionCanvasGroup, 0f, fadeOutDuration).setEase(fadeOutEaseType).setOnStart(() => OnTransitionEnded?.Invoke()));
     }
-
-    private void OnTransitionComplete() => LevelManager.Instance?.StartLevel();
 
     /// <summary>
     /// Moves the active text into view and the inactive text out of view.

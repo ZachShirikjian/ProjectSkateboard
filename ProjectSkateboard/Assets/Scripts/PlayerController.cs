@@ -263,6 +263,9 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void Jump()
     {
+        if (LevelManager.Instance != null && !LevelManager.Instance.IsGameActive())
+            return;
+
         if (isGrounded)
         {
             rb2D.AddForce(transform.up * playerSettings.jumpForce, ForceMode2D.Impulse);

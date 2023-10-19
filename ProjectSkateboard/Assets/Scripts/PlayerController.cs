@@ -136,6 +136,8 @@ public class PlayerController : MonoBehaviour
         if (LevelManager.Instance != null && !LevelManager.Instance.IsGameActive())
             return;
 
+        RotatePlayerOrientation();
+
         if (!onRail)
         {
             //Move the player based on player input
@@ -156,28 +158,6 @@ public class PlayerController : MonoBehaviour
         }
         else
             RailMovement();
-
-        RotatePlayerOrientation();
-
-        if (rotatingOnJump)
-        {
-            // Calculate the interpolation factor based on the rotationSpeed
-            float rotationFactor = playerSettings.rotationSpeed * Time.fixedDeltaTime;
-
-            // Interpolate between the current rotation and the target rotation
-            Vector3 currentEulerAngles = transform.eulerAngles;
-            transform.eulerAngles = new Vector3(
-                Mathf.LerpAngle(currentEulerAngles.x, targetRotation.x, rotationFactor),
-                Mathf.LerpAngle(currentEulerAngles.y, targetRotation.y, rotationFactor),
-                Mathf.LerpAngle(currentEulerAngles.z, targetRotation.z, rotationFactor));
-
-            // Check if we've reached the upright orientation
-            if (Vector3.Distance(transform.eulerAngles, targetRotation) < 0.1f)
-            {
-                transform.eulerAngles = Vector3.zero;
-                rotatingOnJump = false;
-            }
-        }
     }
 
     /// <summary>
@@ -278,6 +258,34 @@ public class PlayerController : MonoBehaviour
             float groundAngle = Mathf.Atan2(hit.normal.x, hit.normal.y) * Mathf.Rad2Deg;
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, -groundAngle);
         }
+
+        CheckRotateInAir();
+    }
+
+    /// <summary>
+    /// Checks to see if the player needs to rotate in the air.
+    /// </summary>
+    private void CheckRotateInAir()
+    {
+        if (rotatingOnJump)
+        {
+            // Calculate the interpolation factor based on the rotationSpeed
+            float rotationFactor = playerSettings.rotationSpeed * Time.fixedDeltaTime;
+
+            // Interpolate between the current rotation and the target rotation
+            Vector3 currentEulerAngles = transform.eulerAngles;
+            transform.eulerAngles = new Vector3(
+                Mathf.LerpAngle(currentEulerAngles.x, targetRotation.x, rotationFactor),
+                Mathf.LerpAngle(currentEulerAngles.y, targetRotation.y, rotationFactor),
+                Mathf.LerpAngle(currentEulerAngles.z, targetRotation.z, rotationFactor));
+
+            // Check if we've reached the upright orientation
+            if (Vector3.Distance(transform.eulerAngles, targetRotation) < 0.1f)
+            {
+                transform.eulerAngles = Vector3.zero;
+                rotatingOnJump = false;
+            }
+        }
     }
 
     /// <summary>
@@ -339,7 +347,7 @@ public class PlayerController : MonoBehaviour
 
         // Cast the ray and store the hit information
         RaycastHit2D hit = Physics2D.Raycast(origin, direction, distance, groundLayer);
-        Debug.DrawRay(origin, direction, Color.yellow);
+        Debug.DrawRay(origin, direction, Color.blue);
 
         if (hit.collider != null)
             return hit.normal;

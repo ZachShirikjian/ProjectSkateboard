@@ -7,7 +7,11 @@ public class PlayerSettings : ScriptableObject
 {
     public float moveSpeed = 5f;
     public float airSpeed = 3f;
+    public float railSpeed = 5f;
+    public float rotationSpeed = 0.2f;
     public float deceleration = 5f;
     public float maxSpeed = 10f;
     public float jumpForce = 10f;
+    public float comboInputDelay = 0.2f;
+    public float hypeModeTime = 5f;
 }

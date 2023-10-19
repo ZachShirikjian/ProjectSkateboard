@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 183443832272998046}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b702f536664314baf879a6bccae09b4b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -118,7 +118,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 1, y: 2.5}
   m_Direction: 0
 --- !u!1 &7722055811682736595
 GameObject:
@@ -230,6 +230,14 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  comboList:
+  - {fileID: 11400000, guid: 02d59f2e31108574aae163ef78c6de4f, type: 2}
+  - {fileID: 11400000, guid: de4d79942411fbd4ea20f0041961b0b6, type: 2}
+  - {fileID: 11400000, guid: d5ff1ad3bdec7194888f42e87163cbac, type: 2}
+  - {fileID: 11400000, guid: 169949df52088d243a769e0611eb00cf, type: 2}
+  - {fileID: 11400000, guid: efae93d834aea404ca3d7aebe304a849, type: 2}
+  - {fileID: 11400000, guid: 3ccbb372a47c45e49897396644079f05, type: 2}
+  - {fileID: 11400000, guid: d37ba4062b2b5314d90eaa2490f2916d, type: 2}
   debugCombo: 0
   debugComboInfo: {fileID: 11400000, guid: 02d59f2e31108574aae163ef78c6de4f, type: 2}
 --- !u!114 &3072209324584704685

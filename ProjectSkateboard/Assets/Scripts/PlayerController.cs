@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour
     private bool onRail;
     private Transform groundCheck;
     private PlayerMode playerMode = PlayerMode.GROUND;
+    private bool rotatingOnJump;
+    private Vector3 targetRotation = Vector3.zero;
 
     private List<Combo.ComboKey> currentComboInput = new List<Combo.ComboKey>();
     private Combo currentCombo;
@@ -80,7 +82,7 @@ public class PlayerController : MonoBehaviour
 
         if (isGrounded)
         {
-            foreach(Collider2D collider in colliders)
+            foreach (Collider2D collider in colliders)
             {
                 if (collider.CompareTag("Rail"))
                 {
@@ -156,6 +158,26 @@ public class PlayerController : MonoBehaviour
             RailMovement();
 
         RotatePlayerOrientation();
+
+        if (rotatingOnJump)
+        {
+            // Calculate the interpolation factor based on the rotationSpeed
+            float rotationFactor = playerSettings.rotationSpeed * Time.fixedDeltaTime;
+
+            // Interpolate between the current rotation and the target rotation
+            Vector3 currentEulerAngles = transform.eulerAngles;
+            transform.eulerAngles = new Vector3(
+                Mathf.LerpAngle(currentEulerAngles.x, targetRotation.x, rotationFactor),
+                Mathf.LerpAngle(currentEulerAngles.y, targetRotation.y, rotationFactor),
+                Mathf.LerpAngle(currentEulerAngles.z, targetRotation.z, rotationFactor));
+
+            // Check if we've reached the upright orientation
+            if (Vector3.Distance(transform.eulerAngles, targetRotation) < 0.1f)
+            {
+                transform.eulerAngles = Vector3.zero;
+                rotatingOnJump = false;
+            }
+        }
     }
 
     /// <summary>
@@ -269,6 +291,7 @@ public class PlayerController : MonoBehaviour
         if (isGrounded)
         {
             rb2D.AddForce(transform.up * playerSettings.jumpForce, ForceMode2D.Impulse);
+            rotatingOnJump = true;
             GameManager.Instance.AudioManager.PlayOneShot(AudioManager.GameSound.Sound.PlayerJump);
         }
     }
@@ -281,7 +304,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void OnStartRail()
     {
-        Debug.Log("Rail Entered!");
+        //Debug.Log("Rail Entered!");
         playerMode = PlayerMode.GRIND;
 
         railMomentum = rb2D.velocity.x > 0 ? 1 : -1;

@@ -257,6 +257,8 @@ public class PlayerController : MonoBehaviour
             // Get the angle of the ground and set it as the rotation for the player
             float groundAngle = Mathf.Atan2(hit.normal.x, hit.normal.y) * Mathf.Rad2Deg;
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, -groundAngle);
+
+            Debug.Log("Rotating Player: Hit On " + hit.collider.name + " | Normal: " + hit.normal + ", Player Rotation: " + transform.eulerAngles);
         }
 
         CheckRotateInAir();
@@ -278,6 +280,8 @@ public class PlayerController : MonoBehaviour
                 Mathf.LerpAngle(currentEulerAngles.x, targetRotation.x, rotationFactor),
                 Mathf.LerpAngle(currentEulerAngles.y, targetRotation.y, rotationFactor),
                 Mathf.LerpAngle(currentEulerAngles.z, targetRotation.z, rotationFactor));
+
+            Debug.Log("Rotating Jump: " + currentEulerAngles + " to " + transform.eulerAngles);
 
             // Check if we've reached the upright orientation
             if (Vector3.Distance(transform.eulerAngles, targetRotation) < 0.1f)

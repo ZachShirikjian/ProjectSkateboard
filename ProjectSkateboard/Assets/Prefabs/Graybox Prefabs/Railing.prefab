@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 8765363852121341560}
   - component: {fileID: 446620276886090594}
   - component: {fileID: 6245387378521892904}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rail
   m_TagString: Rail
   m_Icon: {fileID: 0}

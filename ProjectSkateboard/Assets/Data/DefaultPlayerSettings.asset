@@ -15,8 +15,9 @@ MonoBehaviour:
   moveSpeed: 9
   airSpeed: 9
   railSpeed: 7
-  rotationSpeed: 0.2
+  rotationSpeed: 4
   deceleration: 5
   maxSpeed: 30
   jumpForce: 10
   comboInputDelay: 0.25
+  hypeModeTime: 5

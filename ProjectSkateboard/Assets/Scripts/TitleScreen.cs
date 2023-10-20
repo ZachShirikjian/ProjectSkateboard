@@ -14,6 +14,11 @@ public class TitleScreen : MonoBehaviour
         controlsPanel.SetActive(false);
     }
 
+    public void BackToTitle()
+    {
+        SceneManager.LoadScene(0);
+    }
+
     public void StartGame(string sceneName)
     {
         GameManager.Instance.LoadScene(sceneName);

@@ -10,11 +10,16 @@ public class AudioManager : MonoBehaviour
         public enum SoundType { BGM, SFX }
         public enum Sound
         {
+            TitlescreenMusic,
+            NightToDayTransition,
+            DayMusic,
             PlayerJump,
             TrickSuccess,
             ComboEnd,
             MenuButtonOver,
             MenuButtonClick,
+            ResultsWin,
+            ResultsFail
         }
 
         [Tooltip("The sound to play.")] public Sound sound; 

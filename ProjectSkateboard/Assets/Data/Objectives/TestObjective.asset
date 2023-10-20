@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: TestObjective
   m_EditorClassIdentifier: 
   objectiveType: {fileID: 11400000, guid: fd3681e47c078564d8250abc28c97115, type: 2}
-  timeLimit: 10
+  timeLimit: 9999
   scoreValue: 1000

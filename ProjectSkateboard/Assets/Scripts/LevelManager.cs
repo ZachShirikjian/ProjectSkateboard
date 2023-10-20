@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+using System.Threading.Tasks;
 
 public enum TimeOfDay { DAY, NIGHT }
 
@@ -25,6 +25,7 @@ public class LevelManager : MonoBehaviour
     public bool debugAddScore = false;
     public float debugScoreValue = 1000;
 
+    internal bool isGamePaused = false;
     private bool isGameActive = false;
     private bool levelEnded = false;
     private bool levelCleared = false;
@@ -45,7 +46,8 @@ public class LevelManager : MonoBehaviour
         TimeTransitionManager.OnTransitionEnded += StartObjectiveCountdown;
         StartingObjectiveManager.OnCountdownEnded += StartLevel;
         GameTimer.OnTimerEnded += EndLevel;
-        ComboManager.OnComboEnd += AddComboToScore;
+        ComboManager.OnComboEnd += AddToTotalScore;
+        Collectible.OnCollectable += AddToTotalScore;
         GoalLevelProgressController.OnProgressComplete += ClearLevel;
     }
 
@@ -54,7 +56,8 @@ public class LevelManager : MonoBehaviour
         TimeTransitionManager.OnTransitionEnded -= StartObjectiveCountdown;
         StartingObjectiveManager.OnCountdownEnded -= StartLevel;
         GameTimer.OnTimerEnded -= EndLevel;
-        ComboManager.OnComboEnd -= AddComboToScore;
+        ComboManager.OnComboEnd -= AddToTotalScore;
+        Collectible.OnCollectable -= AddToTotalScore;
         GoalLevelProgressController.OnProgressComplete -= ClearLevel;
     }
 
@@ -71,31 +74,37 @@ public class LevelManager : MonoBehaviour
     {
         if (debugAddScore)
         {
-            AddComboToScore((int)debugScoreValue);
+            AddToTotalScore((int)debugScoreValue);
             debugAddScore = false;
         }
     }
 
     /// <summary>
-    /// Adds the current combo score to the total score.
+    /// Adds the current score to the total score.
     /// </summary>
-    /// <param name="comboScore">The current combo score.</param>
-    private void AddComboToScore(int comboScore)
+    /// <param name="addedScore">The current score to add.</param>
+    private void AddToTotalScore(int addedScore)
     {
-        gameScore?.AddToScore(comboScore);
+        gameScore?.AddToScore(addedScore);
     }
 
     private void ClearLevel() => levelCleared = true;
 
-    private void EndLevel()
+    private async void EndLevel()
     {
         isGameActive = false;
         levelEnded = true;
 
+        await Task.Delay(100);
+
         levelResultsScreenController.gameObject.SetActive(true);
 
         if (levelCleared)
+        {
+            if (PlayerPrefs.GetInt("LocalHighScore") < gameScore.GetScore())
+                PlayerPrefs.SetInt("LocalHighScore", gameScore.GetScore());
             OnLevelWin?.Invoke();
+        }
         else
             OnLevelFailed?.Invoke();
     }

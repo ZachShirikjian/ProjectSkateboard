@@ -9,6 +9,8 @@ public class Combo : ScriptableObject
 
     public new string name;
     public int score;
+    public Sprite comboSprite;
+    public float comboDuration;
 
     public ComboKey[] comboRequirement = { ComboKey.NONE };
 }

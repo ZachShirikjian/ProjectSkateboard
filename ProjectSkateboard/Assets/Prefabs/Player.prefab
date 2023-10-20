@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 183443832272998046}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -74,12 +74,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
+  m_Sprite: {fileID: 1638280357, guid: ee67a4ea5db384b7a9a8dd096d25419e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 2.6666667, y: 2.6666667}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -118,7 +118,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 1, y: 2.5}
   m_Direction: 0
 --- !u!1 &7722055811682736595
 GameObject:
@@ -202,7 +202,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -230,6 +230,16 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  comboList:
+  - {fileID: 11400000, guid: 02d59f2e31108574aae163ef78c6de4f, type: 2}
+  - {fileID: 11400000, guid: de4d79942411fbd4ea20f0041961b0b6, type: 2}
+  - {fileID: 11400000, guid: a5ad3d2cf39917c42ae031d66a3e8d34, type: 2}
+  - {fileID: 11400000, guid: d37ba4062b2b5314d90eaa2490f2916d, type: 2}
+  - {fileID: 11400000, guid: cb287e5fd4e0fcd47a2765baeea8f29c, type: 2}
+  - {fileID: 11400000, guid: 83405dbeaea411849963dabcd02f1519, type: 2}
+  - {fileID: 11400000, guid: 420c74b4b0b9e7645bc4e079dd7c40ee, type: 2}
+  - {fileID: 11400000, guid: 92ced921ebf7fdf4bad12590151649b2, type: 2}
+  - {fileID: 11400000, guid: a4745c8b1d78ba64c82926448002f4e8, type: 2}
   debugCombo: 0
   debugComboInfo: {fileID: 11400000, guid: 02d59f2e31108574aae163ef78c6de4f, type: 2}
 --- !u!114 &3072209324584704685

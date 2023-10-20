@@ -96,6 +96,7 @@ public class TimeTransitionManager : MonoBehaviour
     {
         if (currentTime == TimeOfDay.DAY)
         {
+            GameManager.Instance?.AudioManager.PlayOneShot(AudioManager.GameSound.Sound.NightToDayTransition);
             MoveToActivePosition(dayActiveTransform, dayInactiveTransform);
             MoveToInactivePosition(nightActiveTransform, nightInactiveTransform);
         }

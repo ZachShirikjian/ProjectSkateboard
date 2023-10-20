@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Ollie
   score: 750
+  comboSprite: {fileID: 212247779, guid: ee67a4ea5db384b7a9a8dd096d25419e, type: 3}
+  comboDuration: 0.5
   comboRequirement: 01000000

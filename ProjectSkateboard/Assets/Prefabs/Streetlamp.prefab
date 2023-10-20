@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7219661533299665076}
   - component: {fileID: 9119108907345157405}
   - component: {fileID: 2137405053462997211}
+  - component: {fileID: 3782078032964624401}
   m_Layer: 6
   m_Name: Streetlamp
   m_TagString: Untagged
@@ -116,9 +117,9 @@ BoxCollider2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 2.9098296}
+  m_Offset: {x: 0, y: 3.3606834}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -129,7 +130,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6, y: 1.3196595}
+  m_Size: {x: 6, y: 0.05726981}
   m_EdgeRadius: 0
 --- !u!61 &2137405053462997211
 BoxCollider2D:
@@ -176,6 +177,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.4000001, y: 6.317275}
   m_EdgeRadius: 0
+--- !u!251 &3782078032964624401
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118260829601048619}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 168.09
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!1 &5122992253486777627
 GameObject:
   m_ObjectHideFlags: 0

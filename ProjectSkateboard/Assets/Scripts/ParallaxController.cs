@@ -15,7 +15,7 @@ public class ParallaxController : MonoBehaviour
     private float textureUnitSizeY;
 
     private Vector2 backgroundSize;
-    private float tileMultiplier = 3.5f;
+    private float tileMultiplier = 3f;
 
     // Start is called before the first frame update
     void Start()

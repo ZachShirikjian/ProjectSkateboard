@@ -19,7 +19,11 @@ public class PlayerController : MonoBehaviour
 
     private enum PlayerMode { GROUND, AIR, GRIND };
 
+    private SpriteRenderer playerSpriteRenderer;
+    private Sprite idleSprite;
+
     private Vector2 movement;
+    private bool isMovingRight;
     private bool isGrounded;
     private bool onRail;
     private Transform groundCheck;
@@ -30,7 +34,9 @@ public class PlayerController : MonoBehaviour
     private List<Combo.ComboKey> currentComboInput = new List<Combo.ComboKey>();
     private Combo currentCombo;
     private float currentComboCooldown;
+    private float comboDurationCooldown;
     private bool comboInputActive;
+    private bool comboDurationActive;
     private bool hypeTimeReady;
 
     private float railMomentum;
@@ -51,6 +57,10 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        playerSpriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        idleSprite = playerSpriteRenderer?.sprite;
+        isMovingRight = true;
+
         rb2D = GetComponent<Rigidbody2D>();
         groundCheck = transform.Find("GroundCheck");
     }
@@ -107,6 +117,8 @@ public class PlayerController : MonoBehaviour
             switch (checkPlayerMode)
             {
                 case PlayerMode.GROUND:
+                    if (playerSpriteRenderer.sprite != idleSprite)
+                        playerSpriteRenderer.sprite = idleSprite;
                     OnPlayerGrounded?.Invoke();
                     break;
             }
@@ -121,6 +133,9 @@ public class PlayerController : MonoBehaviour
             else
                 PerformCombo();
         }
+
+        if(comboDurationActive)
+            UpdateComboCooldown();
 
         if (debugCombo)
         {
@@ -137,12 +152,14 @@ public class PlayerController : MonoBehaviour
             return;
 
         RotatePlayerOrientation();
+        CheckPlayerDirection();
 
         if (!onRail)
         {
             //Move the player based on player input
             movement = playerControls.Player.Move.ReadValue<Vector2>();
             Vector2 moveForce = new Vector2(movement.x * (isGrounded ? playerSettings.moveSpeed : playerSettings.airSpeed), 0f);
+            Debug.Log("Move Force: " + moveForce);
             rb2D.AddForce(moveForce);
 
             //If the player is not trying to move, start to decelerate
@@ -165,7 +182,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void OnTrickButton(InputAction.CallbackContext ctx)
     {
-        if(playerMode != PlayerMode.GROUND)
+        if(playerMode != PlayerMode.GROUND && !comboDurationActive)
         {
             switch (ctx.action.name)
             {
@@ -201,7 +218,7 @@ public class PlayerController : MonoBehaviour
     {
         foreach(Combo combo in comboList)
         {
-            Debug.Log("Checking " + combo.name + "...");
+            //Debug.Log("Checking " + combo.name + "...");
 
             //Continue if the current combo does not match the length
             if (currentComboInput.Count != combo.comboRequirement.Length)
@@ -234,11 +251,60 @@ public class PlayerController : MonoBehaviour
         if(currentCombo != null)
         {
             OnComboSuccess?.Invoke(currentCombo);
+            if(currentCombo.comboSprite != null)
+            {
+                playerSpriteRenderer.sprite = currentCombo.comboSprite;
+                comboDurationActive = true;
+                comboDurationCooldown = currentCombo.comboDuration;
+            }
         }
 
         currentCombo = null;
         currentComboInput.Clear();
         comboInputActive = false;
+    }
+
+    private void UpdateComboCooldown()
+    {
+        comboDurationCooldown -= Time.deltaTime;
+
+        if (comboDurationCooldown <= 0)
+            comboDurationActive = false;
+    }
+
+    /// <summary>
+    /// Checks the player's direction and updates the sprite flip accordingly.
+    /// </summary>
+    private void CheckPlayerDirection()
+    {
+        if (!onRail)
+        {
+            if (isMovingRight && rb2D.velocity.normalized.x < 0)
+            {
+                isMovingRight = false;
+                playerSpriteRenderer.flipX = !isMovingRight;
+            }
+
+            else if (rb2D.velocity.normalized.x > 0)
+            {
+                isMovingRight = true;
+                playerSpriteRenderer.flipX = !isMovingRight;
+            }
+        }
+        else
+        {
+            if (isMovingRight && railMomentum < 0)
+            {
+                isMovingRight = false;
+                playerSpriteRenderer.flipX = !isMovingRight;
+            }
+
+            else if (railMomentum > 0)
+            {
+                isMovingRight = true;
+                playerSpriteRenderer.flipX = !isMovingRight;
+            }
+        }
     }
 
     /// <summary>
@@ -248,11 +314,11 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 origin = groundCheck.position;
         Vector2 direction = Vector2.down;
-        float distance = 0.1f;
+        float distance = 1f;
 
         // Cast the ray and store the hit information
         RaycastHit2D hit = Physics2D.Raycast(origin, direction, distance, groundLayer);
-        Debug.DrawRay(origin, direction, Color.yellow);
+        Debug.DrawRay(origin, direction * distance, Color.yellow);
 
         if (hit.collider != null)
         {
@@ -260,7 +326,7 @@ public class PlayerController : MonoBehaviour
             float groundAngle = Mathf.Atan2(hit.normal.x, hit.normal.y) * Mathf.Rad2Deg;
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, -groundAngle);
 
-            Debug.Log("Rotating Player: Hit On " + hit.collider.name + " | Normal: " + hit.normal + ", Player Rotation: " + transform.eulerAngles);
+            //Debug.Log("Rotating Player: Hit On " + hit.collider.name + " | Normal: " + hit.normal + ", Player Rotation: " + transform.eulerAngles);
         }
 
         CheckRotateInAir();
@@ -283,7 +349,7 @@ public class PlayerController : MonoBehaviour
                 Mathf.LerpAngle(currentEulerAngles.y, targetRotation.y, rotationFactor),
                 Mathf.LerpAngle(currentEulerAngles.z, targetRotation.z, rotationFactor));
 
-            Debug.Log("Rotating Jump: " + currentEulerAngles + " to " + transform.eulerAngles);
+            //Debug.Log("Rotating Jump: " + currentEulerAngles + " to " + transform.eulerAngles);
 
             // Check if we've reached the upright orientation
             if (Vector3.Distance(transform.eulerAngles, targetRotation) < 0.1f)
@@ -319,9 +385,14 @@ public class PlayerController : MonoBehaviour
     private void OnStartRail()
     {
         //Debug.Log("Rail Entered!");
+        if (playerSpriteRenderer.sprite != idleSprite)
+            playerSpriteRenderer.sprite = idleSprite;
+
         playerMode = PlayerMode.GRIND;
 
-        railMomentum = rb2D.velocity.x > 0 ? 1 : -1;
+        float startingMomentum = (Mathf.Abs(rb2D.velocity.x) < playerSettings.railSpeed) ? playerSettings.railSpeed : Mathf.Abs(rb2D.velocity.x);
+
+        railMomentum = rb2D.velocity.normalized.x * startingMomentum;
 
         railDirection = transform.right * railMomentum;
         Debug.DrawRay(groundCheck.position, railDirection, Color.red);
@@ -337,7 +408,7 @@ public class PlayerController : MonoBehaviour
 
         // Calculate the movement direction based on the rail normal
         Vector2 moveDirection = new Vector2(railNormal.y, -railNormal.x);
-        Vector2 moveForce = moveDirection * railMomentum * playerSettings.railSpeed;
+        Vector2 moveForce = moveDirection * railMomentum;
         transform.position = new Vector2(transform.position.x, transform.position.y) + moveForce * Time.fixedDeltaTime;
     }
 
@@ -349,14 +420,16 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 origin = groundCheck.position;
         Vector2 direction = Vector2.down;
-        float distance = 0.1f;
+        float distance = 1.5f;
 
         // Cast the ray and store the hit information
         RaycastHit2D hit = Physics2D.Raycast(origin, direction, distance, groundLayer);
-        Debug.DrawRay(origin, direction, Color.blue);
+        Debug.DrawRay(origin, direction * distance, Color.blue);
 
         if (hit.collider != null)
             return hit.normal;
+
+        Debug.Log("Rail Not Found.");
 
         return Vector2.up;
     }

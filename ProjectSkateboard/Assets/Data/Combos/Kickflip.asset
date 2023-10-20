@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Kickflip
   score: 1500
+  comboSprite: {fileID: -387120524, guid: ee67a4ea5db384b7a9a8dd096d25419e, type: 3}
+  comboDuration: 1.25
   comboRequirement: 0100000002000000

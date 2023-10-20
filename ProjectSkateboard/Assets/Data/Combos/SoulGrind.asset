@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Soul Grind
   score: 800
+  comboSprite: {fileID: -429111463, guid: ee67a4ea5db384b7a9a8dd096d25419e, type: 3}
+  comboDuration: 0.75
   comboRequirement: 03000000

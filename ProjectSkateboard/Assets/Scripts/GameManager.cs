@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     /// <param name="sceneName">The name of the scene to load.</param>
     public async void LoadScene(string sceneName)
     {
+        GameManager.Instance?.AudioManager.Stop(AudioManager.GameSound.Sound.TitlescreenMusic);
         target = 0f;
         progressBar.fillAmount = 0f;
         loadingScene = true;

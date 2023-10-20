@@ -6,6 +6,9 @@ using TMPro;
 
 public class StartingObjectiveManager : MonoBehaviour
 {
+    public static GameManager ManagerInstance { get; private set; }
+    public AudioManager AudioManager { get; private set; }
+
     [SerializeField, Tooltip("The objective description text.")] private TextMeshProUGUI objectiveText;
     [SerializeField, Tooltip("The objective goal text.")] private TextMeshProUGUI goalText;
     [SerializeField, Tooltip("The objective countdown text.")] private TextMeshProUGUI countdownText;
@@ -50,6 +53,7 @@ public class StartingObjectiveManager : MonoBehaviour
     private void EndCountdownAnimation()
     {
         gameObject.SetActive(false);
+        GameManager.Instance?.AudioManager.Play(AudioManager.GameSound.Sound.DayMusic);
     }
 
     private void Update()

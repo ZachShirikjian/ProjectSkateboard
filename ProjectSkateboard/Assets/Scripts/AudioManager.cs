@@ -16,6 +16,7 @@ public class AudioManager : MonoBehaviour
             PlayerJump,
             TrickSuccess,
             ComboEnd,
+            CollectCD,
             MenuButtonOver,
             MenuButtonClick,
             ResultsWin,
@@ -39,6 +40,7 @@ public class AudioManager : MonoBehaviour
         musicSource = musicGameObject.AddComponent<AudioSource>();
         GameObject sfxGameObject = Instantiate(new GameObject("SFX Source"), transform);
         sfxSource = sfxGameObject.AddComponent<AudioSource>();
+        Play(GameSound.Sound.TitlescreenMusic);
     }
 
     /// <summary>

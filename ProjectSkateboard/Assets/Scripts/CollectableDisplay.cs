@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class CollectableDisplay : MonoBehaviour
 {
+    public static GameManager Instance { get; private set; }
+    public AudioManager AudioManager { get; private set; }
+
     [SerializeField, Tooltip("The UI collectable image prefab.")] private Image collectablePrefab;
     [SerializeField, Tooltip("The color of the image when inactive.")] private Color inactiveColor;
 
@@ -62,6 +65,8 @@ public class CollectableDisplay : MonoBehaviour
         collectableImages[currentCount].color = activeColor;
         AnimateCollectableImage(collectableImages[currentCount]);
         currentCount++;
+        GameManager.Instance?.AudioManager.Play(AudioManager.GameSound.Sound.CollectCD);
+
     }
 
     /// <summary>

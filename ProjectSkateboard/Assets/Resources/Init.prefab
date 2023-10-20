@@ -290,9 +290,25 @@ MonoBehaviour:
     loop: 0
   - sound: 8
     soundType: 1
-    audioClip: {fileID: 8300000, guid: a44b2764290739c4dbf7545600268a71, type: 3}
+    audioClip: {fileID: 8300000, guid: 6f86327d3e9084e24bf75c91a9f692d8, type: 3}
     loop: 0
   - sound: 9
+    soundType: 1
+    audioClip: {fileID: 8300000, guid: a44b2764290739c4dbf7545600268a71, type: 3}
+    loop: 0
+  - sound: 2
+    soundType: 0
+    audioClip: {fileID: 8300000, guid: 5fa16b3a9bf8746f88a55649c610291c, type: 3}
+    loop: 0
+  - sound: 0
+    soundType: 0
+    audioClip: {fileID: 8300000, guid: df0de5c3b241b40c69a1242af2ad9f67, type: 3}
+    loop: 1
+  - sound: 6
+    soundType: 1
+    audioClip: {fileID: 8300000, guid: 0a59b0b9634924352af57ba362beff3b, type: 3}
+    loop: 0
+  - sound: 10
     soundType: 1
     audioClip: {fileID: 8300000, guid: 1b025628d1d2e42a0a38e94a5f1be028, type: 3}
     loop: 0

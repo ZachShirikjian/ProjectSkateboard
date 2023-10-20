@@ -1123,7 +1123,7 @@ MonoBehaviour:
   comboMultiplier: {fileID: 7642590814755514413}
   hypeTimeMultiplierText: {fileID: 2929013276637671398}
   maxMultiplierScale: 2
-  timeUntilComboBreak: 2.5
+  timeUntilComboBreak: 1
   hypeTimeMultiplier: 1.5
   cooldownBarParent: {fileID: 3548952267269887223}
   cooldownBar: {fileID: 1860756140729353736}

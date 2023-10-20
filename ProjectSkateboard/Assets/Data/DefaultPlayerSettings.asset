@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9175197a3f46c724fabba6fdb62de041, type: 3}
   m_Name: DefaultPlayerSettings
   m_EditorClassIdentifier: 
-  moveSpeed: 9
-  airSpeed: 9
-  railSpeed: 7
-  rotationSpeed: 4
-  deceleration: 5
-  maxSpeed: 30
-  jumpForce: 10
+  moveSpeed: 20
+  airSpeed: 18
+  railSpeed: 25
+  rotationSpeed: 8
+  deceleration: 15
+  maxSpeed: 20
+  jumpForce: 15
   comboInputDelay: 0.25
   hypeModeTime: 5

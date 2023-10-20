@@ -79,7 +79,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 2.6666667, y: 2.6666667}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -202,7 +202,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -233,11 +233,10 @@ MonoBehaviour:
   comboList:
   - {fileID: 11400000, guid: 02d59f2e31108574aae163ef78c6de4f, type: 2}
   - {fileID: 11400000, guid: de4d79942411fbd4ea20f0041961b0b6, type: 2}
-  - {fileID: 11400000, guid: d5ff1ad3bdec7194888f42e87163cbac, type: 2}
-  - {fileID: 11400000, guid: 169949df52088d243a769e0611eb00cf, type: 2}
-  - {fileID: 11400000, guid: efae93d834aea404ca3d7aebe304a849, type: 2}
-  - {fileID: 11400000, guid: 3ccbb372a47c45e49897396644079f05, type: 2}
+  - {fileID: 11400000, guid: a5ad3d2cf39917c42ae031d66a3e8d34, type: 2}
   - {fileID: 11400000, guid: d37ba4062b2b5314d90eaa2490f2916d, type: 2}
+  - {fileID: 11400000, guid: cb287e5fd4e0fcd47a2765baeea8f29c, type: 2}
+  - {fileID: 11400000, guid: 83405dbeaea411849963dabcd02f1519, type: 2}
   debugCombo: 0
   debugComboInfo: {fileID: 11400000, guid: 02d59f2e31108574aae163ef78c6de4f, type: 2}
 --- !u!114 &3072209324584704685

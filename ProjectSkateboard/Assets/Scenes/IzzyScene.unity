@@ -9647,22 +9647,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 945518534439284123, guid: b9d9065ed78f39747824e67a069ed24c, type: 3}
-      propertyPath: m_Size.x
-      value: 2.6666667
-      objectReference: {fileID: 0}
-    - target: {fileID: 945518534439284123, guid: b9d9065ed78f39747824e67a069ed24c, type: 3}
-      propertyPath: m_Size.y
-      value: 2.6666667
-      objectReference: {fileID: 0}
-    - target: {fileID: 945518534439284123, guid: b9d9065ed78f39747824e67a069ed24c, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: b702f536664314baf879a6bccae09b4b, type: 3}
-    - target: {fileID: 945518534439284123, guid: b9d9065ed78f39747824e67a069ed24c, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1636714225581301838, guid: b9d9065ed78f39747824e67a069ed24c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.6
@@ -9702,46 +9686,6 @@ PrefabInstance:
     - target: {fileID: 1636714225581301838, guid: b9d9065ed78f39747824e67a069ed24c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3869704379040944456, guid: b9d9065ed78f39747824e67a069ed24c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 4276261517085612612, guid: b9d9065ed78f39747824e67a069ed24c, type: 3}
-      propertyPath: comboList.Array.size
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 4276261517085612612, guid: b9d9065ed78f39747824e67a069ed24c, type: 3}
-      propertyPath: comboList.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: 02d59f2e31108574aae163ef78c6de4f, type: 2}
-    - target: {fileID: 4276261517085612612, guid: b9d9065ed78f39747824e67a069ed24c, type: 3}
-      propertyPath: comboList.Array.data[1]
-      value: 
-      objectReference: {fileID: 11400000, guid: de4d79942411fbd4ea20f0041961b0b6, type: 2}
-    - target: {fileID: 4276261517085612612, guid: b9d9065ed78f39747824e67a069ed24c, type: 3}
-      propertyPath: comboList.Array.data[2]
-      value: 
-      objectReference: {fileID: 11400000, guid: d5ff1ad3bdec7194888f42e87163cbac, type: 2}
-    - target: {fileID: 4276261517085612612, guid: b9d9065ed78f39747824e67a069ed24c, type: 3}
-      propertyPath: comboList.Array.data[3]
-      value: 
-      objectReference: {fileID: 11400000, guid: 169949df52088d243a769e0611eb00cf, type: 2}
-    - target: {fileID: 4276261517085612612, guid: b9d9065ed78f39747824e67a069ed24c, type: 3}
-      propertyPath: comboList.Array.data[4]
-      value: 
-      objectReference: {fileID: 11400000, guid: efae93d834aea404ca3d7aebe304a849, type: 2}
-    - target: {fileID: 4276261517085612612, guid: b9d9065ed78f39747824e67a069ed24c, type: 3}
-      propertyPath: comboList.Array.data[5]
-      value: 
-      objectReference: {fileID: 11400000, guid: 3ccbb372a47c45e49897396644079f05, type: 2}
-    - target: {fileID: 4276261517085612612, guid: b9d9065ed78f39747824e67a069ed24c, type: 3}
-      propertyPath: comboList.Array.data[6]
-      value: 
-      objectReference: {fileID: 11400000, guid: d37ba4062b2b5314d90eaa2490f2916d, type: 2}
-    - target: {fileID: 6866272510493717704, guid: b9d9065ed78f39747824e67a069ed24c, type: 3}
-      propertyPath: m_Size.y
-      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 8312954898872006771, guid: b9d9065ed78f39747824e67a069ed24c, type: 3}
       propertyPath: m_Name

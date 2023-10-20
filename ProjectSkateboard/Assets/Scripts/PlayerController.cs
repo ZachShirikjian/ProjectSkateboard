@@ -201,6 +201,8 @@ public class PlayerController : MonoBehaviour
     {
         foreach(Combo combo in comboList)
         {
+            Debug.Log("Checking " + combo.name + "...");
+
             //Continue if the current combo does not match the length
             if (currentComboInput.Count != combo.comboRequirement.Length)
                 continue;
@@ -325,7 +327,7 @@ public class PlayerController : MonoBehaviour
         Debug.DrawRay(groundCheck.position, railDirection, Color.red);
 
         //Start grind combo
-        OnComboSuccess?.Invoke(comboList[6]);
+        OnComboSuccess?.Invoke(comboList[2]);
     }
 
     private void RailMovement()

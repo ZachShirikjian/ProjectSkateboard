@@ -8,13 +8,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TitleScreen.unity
     guid: 31e4b55b10d1848f585bb3ffb9374edb
+  - enabled: 1
+    path: Assets/Scenes/GameScene.unity
+    guid: ab4a5cdb1e53e724dbf31d3327a89621
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 0
     path: Assets/Scenes/ZachScene.unity
     guid: e83909af9c1374d61be3e9e16104ca09
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/IzzyScene.unity
     guid: f201b35d53d544d918464a70435d5b7a
   m_configObjects: {}

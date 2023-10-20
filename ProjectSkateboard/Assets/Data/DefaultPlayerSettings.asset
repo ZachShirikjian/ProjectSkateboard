@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DefaultPlayerSettings
   m_EditorClassIdentifier: 
   moveSpeed: 20
-  airSpeed: 30
+  airSpeed: 15
   railSpeed: 12
   rotationSpeed: 8
   deceleration: 15

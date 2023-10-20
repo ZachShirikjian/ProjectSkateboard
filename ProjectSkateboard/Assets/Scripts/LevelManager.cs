@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+using System.Threading.Tasks;
 
 public enum TimeOfDay { DAY, NIGHT }
 
@@ -25,6 +25,7 @@ public class LevelManager : MonoBehaviour
     public bool debugAddScore = false;
     public float debugScoreValue = 1000;
 
+    internal bool isGamePaused = false;
     private bool isGameActive = false;
     private bool levelEnded = false;
     private bool levelCleared = false;
@@ -89,15 +90,21 @@ public class LevelManager : MonoBehaviour
 
     private void ClearLevel() => levelCleared = true;
 
-    private void EndLevel()
+    private async void EndLevel()
     {
         isGameActive = false;
         levelEnded = true;
 
+        await Task.Delay(100);
+
         levelResultsScreenController.gameObject.SetActive(true);
 
         if (levelCleared)
+        {
+            if (PlayerPrefs.GetInt("LocalHighScore") < gameScore.GetScore())
+                PlayerPrefs.SetInt("LocalHighScore", gameScore.GetScore());
             OnLevelWin?.Invoke();
+        }
         else
             OnLevelFailed?.Invoke();
     }

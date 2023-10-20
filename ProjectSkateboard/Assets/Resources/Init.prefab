@@ -274,15 +274,27 @@ MonoBehaviour:
   soundMasterList:
   - sound: 1
     soundType: 1
+    audioClip: {fileID: 8300000, guid: 50cf4fd5b6233433e970b3c520f33b10, type: 3}
+    loop: 0
+  - sound: 4
+    soundType: 1
     audioClip: {fileID: 8300000, guid: 6c574194293eb2541a2eae39de1c55b0, type: 3}
     loop: 0
-  - sound: 2
+  - sound: 5
     soundType: 1
     audioClip: {fileID: 8300000, guid: cad2d076aada4b14fbbb319236762e0c, type: 3}
     loop: 0
-  - sound: 0
+  - sound: 3
     soundType: 1
     audioClip: {fileID: 8300000, guid: b063a0b2040fe6445b4bd46e061f4204, type: 3}
+    loop: 0
+  - sound: 8
+    soundType: 1
+    audioClip: {fileID: 8300000, guid: a44b2764290739c4dbf7545600268a71, type: 3}
+    loop: 0
+  - sound: 9
+    soundType: 1
+    audioClip: {fileID: 8300000, guid: 1b025628d1d2e42a0a38e94a5f1be028, type: 3}
     loop: 0
 --- !u!1 &6435035021919589681
 GameObject:

@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField, Tooltip("The layer for objects that can be jumped on.")] private LayerMask groundLayer;
     [SerializeField, Tooltip("The master list of possible combos.")] private Combo[] comboList;
 
+    public static Action OnPaused;
     public static Action<Combo> OnComboSuccess;
     public static Action OnPlayerGrounded;
     public static Action<float> OnHypeTimeActivated;
@@ -53,6 +54,7 @@ public class PlayerController : MonoBehaviour
         playerControls.Player.AirTrick2.performed += OnTrickButton;
         playerControls.Player.GrindTrick.performed += OnTrickButton;
         playerControls.Player.HypeTime.performed += _ => OnHypeTime();
+        playerControls.Player.Pause.performed += _ => OnPaused?.Invoke();
     }
 
     private void Start()
@@ -159,7 +161,7 @@ public class PlayerController : MonoBehaviour
             //Move the player based on player input
             movement = playerControls.Player.Move.ReadValue<Vector2>();
             Vector2 moveForce = new Vector2(movement.x * (isGrounded ? playerSettings.moveSpeed : playerSettings.airSpeed), 0f);
-            Debug.Log("Move Force: " + moveForce);
+            //Debug.Log("Move Force: " + moveForce);
             rb2D.AddForce(moveForce);
 
             //If the player is not trying to move, start to decelerate
@@ -193,7 +195,10 @@ public class PlayerController : MonoBehaviour
                     currentComboInput.Add(Combo.ComboKey.TRICKTWO);
                     break;
                 case "Grind Trick":
-                    currentComboInput.Add(Combo.ComboKey.GRINDTRICK);
+                    if (playerMode == PlayerMode.GRIND)
+                        currentComboInput.Add(Combo.ComboKey.GRINDTRICK);
+                    else
+                        return;
                     break;
             }
 
@@ -264,12 +269,18 @@ public class PlayerController : MonoBehaviour
         comboInputActive = false;
     }
 
+    /// <summary>
+    /// Decrements the combo duration cooldown timer.
+    /// </summary>
     private void UpdateComboCooldown()
     {
         comboDurationCooldown -= Time.deltaTime;
 
         if (comboDurationCooldown <= 0)
+        {
             comboDurationActive = false;
+            playerSpriteRenderer.sprite = idleSprite;
+        }
     }
 
     /// <summary>
@@ -392,7 +403,7 @@ public class PlayerController : MonoBehaviour
 
         float startingMomentum = (Mathf.Abs(rb2D.velocity.x) < playerSettings.railSpeed) ? playerSettings.railSpeed : Mathf.Abs(rb2D.velocity.x);
 
-        railMomentum = rb2D.velocity.normalized.x * startingMomentum;
+        railMomentum = (isMovingRight ? 1: -1) * startingMomentum;
 
         railDirection = transform.right * railMomentum;
         Debug.DrawRay(groundCheck.position, railDirection, Color.red);

@@ -56,6 +56,8 @@ public class ScoreManager : MonoBehaviour
         transitionStartTime = Time.time;
     }
 
+    public int GetScore() => Mathf.CeilToInt(currentScore);
+
     private float CalculateTransitionDuration() => Mathf.Lerp(minScoreAnimationDuration, maxScoreAnimationDuration, Mathf.Abs(currentScore - displayScore) / scoreAnimationDurationRange);
     private void UpdateScoreDisplay() => scoreText.text = displayScore.ToString("n0");
 }

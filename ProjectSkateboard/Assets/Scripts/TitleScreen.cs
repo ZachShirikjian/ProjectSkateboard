@@ -23,6 +23,7 @@ public class TitleScreen : MonoBehaviour
     public void StartGame(string sceneName)
     {
         GameManager.Instance?.LoadScene(sceneName);
+        GameManager.Instance?.AudioManager.Stop(AudioManager.GameSound.Sound.TitlescreenMusic);
     }
 
     public void OpenControls()

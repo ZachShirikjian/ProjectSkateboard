@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
 
         Instance = this;
         AudioManager = GetComponentInChildren<AudioManager>();
+
     }
 
     /// <summary>
@@ -34,7 +35,6 @@ public class GameManager : MonoBehaviour
     /// <param name="sceneName">The name of the scene to load.</param>
     public async void LoadScene(string sceneName)
     {
-        GameManager.Instance?.AudioManager.Stop(AudioManager.GameSound.Sound.TitlescreenMusic);
         target = 0f;
         progressBar.fillAmount = 0f;
         loadingScene = true;
@@ -55,6 +55,12 @@ public class GameManager : MonoBehaviour
         scene.allowSceneActivation = true;
         loaderCanvas?.SetActive(false);
         loadingScene = false;
+        GameManager.Instance?.AudioManager.StopAllSounds();
+        if(SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            Debug.Log(SceneManager.GetActiveScene().buildIndex);
+            GameManager.Instance?.AudioManager.Play(AudioManager.GameSound.Sound.DayMusic);
+        }
     }
 
     private void Update()

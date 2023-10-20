@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -40,7 +41,12 @@ public class AudioManager : MonoBehaviour
         musicSource = musicGameObject.AddComponent<AudioSource>();
         GameObject sfxGameObject = Instantiate(new GameObject("SFX Source"), transform);
         sfxSource = sfxGameObject.AddComponent<AudioSource>();
-        Play(GameSound.Sound.TitlescreenMusic);
+
+        if(SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            Debug.Log(SceneManager.GetActiveScene().buildIndex);
+            GameManager.Instance?.AudioManager.Play(AudioManager.GameSound.Sound.TitlescreenMusic);
+        }
     }
 
     /// <summary>

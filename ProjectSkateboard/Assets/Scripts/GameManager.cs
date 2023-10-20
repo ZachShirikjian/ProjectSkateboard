@@ -56,7 +56,27 @@ public class GameManager : MonoBehaviour
         loaderCanvas?.SetActive(false);
         loadingScene = false;
         GameManager.Instance?.AudioManager.StopAllSounds();
+        SceneManager.sceneLoaded += OnSceneLoaded;
+   
 
+    }
+
+    public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Debug.Log("TEST");
+        switch(scene.buildIndex) {
+            case 1:
+                Debug.Log("level 1");
+            break;
+            case 2:
+                Debug.Log("level 2");
+            break;
+            default:
+                Debug.Log("TITLE");
+                        GameManager.Instance?.AudioManager.StopAllSounds();
+                                GameManager.Instance?.AudioManager.Play(AudioManager.GameSound.Sound.TitlescreenMusic);
+                                break;
+        }
     }
 
     private void Update()

@@ -56,11 +56,7 @@ public class GameManager : MonoBehaviour
         loaderCanvas?.SetActive(false);
         loadingScene = false;
         GameManager.Instance?.AudioManager.StopAllSounds();
-        if(SceneManager.GetActiveScene().buildIndex == 1)
-        {
-            Debug.Log(SceneManager.GetActiveScene().buildIndex);
-            GameManager.Instance?.AudioManager.Play(AudioManager.GameSound.Sound.DayMusic);
-        }
+
     }
 
     private void Update()

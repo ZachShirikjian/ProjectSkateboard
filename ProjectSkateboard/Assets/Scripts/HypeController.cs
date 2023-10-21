@@ -23,6 +23,7 @@ public class HypeController : MonoBehaviour
     public Image hypeTV;
     public Sprite noHype;
     public Sprite hypeTimeActivated;
+    public Sprite hypeQuarterFull;
     public Sprite hypeHalfFull;
 
     private void Start()
@@ -144,9 +145,13 @@ public class HypeController : MonoBehaviour
                 fillProgress = Mathf.Lerp(0.8f, 1f, transitionProgress);
             }
             hypeBar.fillAmount = fillProgress;
-            if(hypeBar.fillAmount <= 0.5)
+            if(hypeBar.fillAmount <= 0.25)
             {
               hypeTV.sprite = noHype;
+            }
+            else if(hypeBar.fillAmount >= 0.25 && hypeBar.fillAmount < 0.5)
+            {
+                hypeTV.sprite = hypeQuarterFull;
             }
             else if(hypeBar.fillAmount >= 0.5)
             {

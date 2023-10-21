@@ -1831,6 +1831,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2059297371}
     m_Modifications:
+    - target: {fileID: 1423707207757126531, guid: a6d5d0e86fbfa524186455aee7243626, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2740620305134155129, guid: a6d5d0e86fbfa524186455aee7243626, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2252,6 +2256,11 @@ MonoBehaviour:
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
+--- !u!1 &571762265 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1423707207757126531, guid: a6d5d0e86fbfa524186455aee7243626, type: 3}
+  m_PrefabInstance: {fileID: 501340265}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &573822684
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2481,8 +2490,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc4ffd46a44d04938889d4231d5bac37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gamepadControls: {fileID: 0}
-  keyboardControls: {fileID: 0}
+  gamepadControls: {fileID: 571762265}
+  keyboardControls: {fileID: 1962603022}
 --- !u!1 &696085212
 GameObject:
   m_ObjectHideFlags: 0
@@ -10081,6 +10090,11 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 4
   m_TargetDisplay: 0
+--- !u!1 &1962603022 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1716578116990020726, guid: a6d5d0e86fbfa524186455aee7243626, type: 3}
+  m_PrefabInstance: {fileID: 501340265}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1983829332
 PrefabInstance:
   m_ObjectHideFlags: 0

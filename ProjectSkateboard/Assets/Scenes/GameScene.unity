@@ -11676,6 +11676,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 4d752246b0615465a82af8d10e18afa7, type: 3}
     - target: {fileID: 7415977854550018967, guid: ea84c6a4cdd955a4a8f6fce2cf4c4466, type: 3}
+      propertyPath: hypeHalfFull
+      value: 
+      objectReference: {fileID: 21300000, guid: a1cf2f3ccea214f02b6fb2615b0d17f1, type: 3}
+    - target: {fileID: 7415977854550018967, guid: ea84c6a4cdd955a4a8f6fce2cf4c4466, type: 3}
       propertyPath: hypeTimeActivated
       value: 
       objectReference: {fileID: 21300000, guid: 9c040402e02de464194df5f849ddbd5e, type: 3}

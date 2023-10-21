@@ -23,6 +23,7 @@ public class HypeController : MonoBehaviour
     public Image hypeTV;
     public Sprite noHype;
     public Sprite hypeTimeActivated;
+    public Sprite hypeHalfFull;
 
     private void Start()
     {
@@ -143,6 +144,14 @@ public class HypeController : MonoBehaviour
                 fillProgress = Mathf.Lerp(0.8f, 1f, transitionProgress);
             }
             hypeBar.fillAmount = fillProgress;
+            if(hypeBar.fillAmount <= 0.5)
+            {
+              hypeTV.sprite = noHype;
+            }
+            else if(hypeBar.fillAmount >= 0.5)
+            {
+                hypeTV.sprite = hypeHalfFull;
+            }
         }
 
         //If hype time is active, constantly deplete the hype meter

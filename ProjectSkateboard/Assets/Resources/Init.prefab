@@ -290,7 +290,7 @@ MonoBehaviour:
     loop: 0
   - sound: 8
     soundType: 1
-    audioClip: {fileID: 8300000, guid: 6f86327d3e9084e24bf75c91a9f692d8, type: 3}
+    audioClip: {fileID: 8300000, guid: 35b0043962ece4c229c4446a24745a17, type: 3}
     loop: 0
   - sound: 9
     soundType: 1

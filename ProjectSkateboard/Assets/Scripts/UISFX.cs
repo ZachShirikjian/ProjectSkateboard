@@ -6,10 +6,16 @@ public class UISFX : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     public AudioManager AudioManager { get; private set; }
+
+
+    //Tab References
+    public GameObject gamepadControls;
+    public GameObject keyboardControls;
     // Start is called before the first frame update
     void Start()
     {
-        
+        keyboardControls.SetActive(true);
+        gamepadControls.SetActive(false);
     }
 
     // Update is called once per frame
@@ -27,6 +33,17 @@ public class UISFX : MonoBehaviour
     {
         GameManager.Instance?.AudioManager.Play(AudioManager.GameSound.Sound.MenuButtonClick);
         Debug.Log("TEST");
+    }
 
+    public void OpenGamepadTab()
+    {
+        keyboardControls.SetActive(false);
+        gamepadControls.SetActive(true);
+    }
+
+    public void OpenKeyboardTab()
+    {
+        keyboardControls.SetActive(true);
+        gamepadControls.SetActive(false);
     }
 }

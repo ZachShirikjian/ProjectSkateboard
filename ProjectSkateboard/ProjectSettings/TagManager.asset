@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Rail
+  - CD
   layers:
   - Default
   - TransparentFX
@@ -39,6 +40,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 2102617335
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: UI Back
+    uniqueID: 3855008083
+    locked: 0
+  - name: UI Front
+    uniqueID: 1200502145
     locked: 0

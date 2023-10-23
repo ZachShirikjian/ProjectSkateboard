@@ -8,7 +8,7 @@ public class GameTimer : MonoBehaviour
 {
     public static Action OnTimerEnded;
 
-    private float currentTimeLeft;
+    private float startingTime, currentTimeLeft;
     private TextMeshProUGUI timerText;
     private bool timerActive = false;
 
@@ -18,19 +18,21 @@ public class GameTimer : MonoBehaviour
     }
 
     /// <summary>
-    /// Initializes a starting time and starts the timer.
+    /// Initializes a starting time.
     /// </summary>
     /// <param name="timerSeconds">The time to start the countdown at (in seconds).</param>
     public void InitializeTimer(float timerSeconds)
     {
+        startingTime = timerSeconds;
         currentTimeLeft = timerSeconds;
-        StartTimer();
+        timerText.text = TimeToString(currentTimeLeft - 1);
     }
 
-    private void StartTimer() => timerActive = true;
+    public void StartTimer() => timerActive = true;
 
     public void EndTimer()
     {
+        timerActive = false;
         OnTimerEnded?.Invoke();
     }
 
@@ -48,6 +50,10 @@ public class GameTimer : MonoBehaviour
                 currentTimeLeft = 0;
                 EndTimer();
             }
+
+            //If the current objective is to beat the level timer and the level has not been cleared yet, update the progress bar
+            if (LevelManager.Instance?.levelObjective.objectiveType.objectiveGoalType == GoalType.Escape && !LevelManager.Instance.IsLevelCleared())
+                LevelManager.Instance.progressBar.UpdateProgressBar((startingTime - currentTimeLeft) / startingTime);
         }
     }
 

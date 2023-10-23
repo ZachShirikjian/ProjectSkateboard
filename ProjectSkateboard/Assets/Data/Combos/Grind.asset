@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Grind
   score: 2250
+  comboSprite: {fileID: 0}
+  comboDuration: 0
+  comboRequirement: 00000000

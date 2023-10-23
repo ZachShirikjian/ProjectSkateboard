@@ -19,6 +19,17 @@ public class HypeController : MonoBehaviour
     private float currentHypeBarSpeed;
     private bool hypeMeterReady, hypeTimeActive;
 
+    //REFERENCE TO UI IMAGE
+    public Image hypeTV;
+    public Sprite noHype;
+    public Sprite hypeTimeActivated;
+    public Sprite hypeQuarterFull;
+    public Sprite hypeHalfFull;
+
+    private void Start()
+    {
+        hypeTV.sprite = noHype;
+    }
     private void OnEnable()
     {
         ComboManager.OnMultiplierUpdated += AddToHypeMeter;
@@ -44,6 +55,7 @@ public class HypeController : MonoBehaviour
         currentMultiplier = 0f;
         currentHypeBarSpeed = hypeBarAnimationSpeed;
         hypeReadyIndicator?.SetActive(false);
+        hypeTV.sprite = noHype;
     }
     
     /// <summary>
@@ -80,6 +92,7 @@ public class HypeController : MonoBehaviour
         currentAnimationTime = 0f;
         hypeTimeActive = true;
         hypeReadyIndicator?.SetActive(false);
+        hypeTV.sprite = hypeTimeActivated;
     }
 
     /// <summary>
@@ -99,6 +112,7 @@ public class HypeController : MonoBehaviour
             displayedMultiplier = fillAmount <= 0.8f ? fillAmount * (goalMultiplier - 1) : goalMultiplier;
 
             HypeTimeEnd?.Invoke();
+            hypeTV.sprite = noHype;
         }
         else
             currentMultiplier = 0f;
@@ -131,6 +145,18 @@ public class HypeController : MonoBehaviour
                 fillProgress = Mathf.Lerp(0.8f, 1f, transitionProgress);
             }
             hypeBar.fillAmount = fillProgress;
+            if(hypeBar.fillAmount <= 0.25)
+            {
+              hypeTV.sprite = noHype;
+            }
+            else if(hypeBar.fillAmount >= 0.25 && hypeBar.fillAmount < 0.5)
+            {
+                hypeTV.sprite = hypeQuarterFull;
+            }
+            else if(hypeBar.fillAmount >= 0.5)
+            {
+                hypeTV.sprite = hypeHalfFull;
+            }
         }
 
         //If hype time is active, constantly deplete the hype meter

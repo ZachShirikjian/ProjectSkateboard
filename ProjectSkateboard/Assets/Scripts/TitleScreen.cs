@@ -1,20 +1,39 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using TMPro;
+
 public class TitleScreen : MonoBehaviour
 {
-    [Tooltip("Reference to Credits Panel")] public GameObject creditsPanel;
+    //Reference to CreditsPanel
+    public GameObject creditsPanel;
+    public GameObject controlsPanel;
+
+    [SerializeField, Tooltip("The local high score text.")] private TextMeshProUGUI highScoreText;
 
     // Start is called before the first frame update
     void Start()
     {
         creditsPanel.SetActive(false);
+        controlsPanel.SetActive(false);
+
+        highScoreText.text = "High Score: " + PlayerPrefs.GetFloat("LocalHighScore").ToString("n0") + " Points";
     }
 
     public void StartGame(string sceneName)
     {
-        SceneManager.LoadScene(sceneName);
+        GameManager.Instance?.LoadScene(sceneName);
+        GameManager.Instance?.AudioManager.Stop(AudioManager.GameSound.Sound.TitlescreenMusic);
+    }
+
+    public void OpenControls()
+    {
+        controlsPanel.SetActive(true);
+    }
+
+    public void CloseControls()
+    {
+        controlsPanel.SetActive(false);
     }
 
     public void OpenCredits()

@@ -31,6 +31,9 @@ public class TimeTransitionManager : MonoBehaviour
     private CanvasGroup transitionCanvasGroup;
     private TimeOfDay currentTime;
 
+        public static GameManager Instance { get; private set; }
+    public AudioManager AudioManager { get; private set; }
+
     private void Start()
     {
         TransitionDay();
@@ -96,17 +99,17 @@ public class TimeTransitionManager : MonoBehaviour
     {
         if (currentTime == TimeOfDay.DAY)
         {
-            GameManager.Instance?.AudioManager.PlayOneShot(AudioManager.GameSound.Sound.NightToDayTransition);
+            GameManager.Instance?.AudioManager.Play(AudioManager.GameSound.Sound.NightToDayTransition);
             MoveToActivePosition(dayActiveTransform, dayInactiveTransform);
             MoveToInactivePosition(nightActiveTransform, nightInactiveTransform);
         }
 
-        else
+        else if(currentTime == TimeOfDay.NIGHT)
         {
+            GameManager.Instance?.AudioManager.PlayOneShot(AudioManager.GameSound.Sound.DayToNightTransition);
             MoveToActivePosition(nightActiveTransform, nightInactiveTransform);
             MoveToInactivePosition(dayActiveTransform, dayInactiveTransform);
         }
-
         FadeOutTimeTransition();
     }
 

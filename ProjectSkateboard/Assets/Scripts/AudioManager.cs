@@ -14,6 +14,7 @@ public class AudioManager : MonoBehaviour
             TitlescreenMusic,
             NightToDayTransition,
             DayMusic,
+            NightMusic,
             PlayerJump,
             TrickSuccess,
             ComboEnd,
@@ -21,7 +22,9 @@ public class AudioManager : MonoBehaviour
             MenuButtonOver,
             MenuButtonClick,
             ResultsWin,
-            ResultsFail
+            ResultsFail,
+            DayToNightTransition,
+            Countdown
         }
 
         [Tooltip("The sound to play.")] public Sound sound; 

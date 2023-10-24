@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class StartingObjectiveManager : MonoBehaviour
@@ -15,7 +16,7 @@ public class StartingObjectiveManager : MonoBehaviour
 
     [SerializeField, Tooltip("The delay before the level countdown.")] private float countdownDelay = 3f;
     [SerializeField, Tooltip("The number of seconds to start counting down from.")] private int countdownTime = 3;
-    [SerializeField, Tooltip("The speed of which to countdown from.")] private float countdownRate = 1f;
+    [SerializeField, Tooltip("The speed of which to countdown from.")] private float countdownRate = 0.25f;
 
     private bool countdownActive;
     private float currentCountdownTime;
@@ -48,12 +49,21 @@ public class StartingObjectiveManager : MonoBehaviour
     {
         countdownActive = true;
         countdownText.text = totalCountdownTime.ToString();
+        GameManager.Instance?.AudioManager.Play(AudioManager.GameSound.Sound.Countdown);
     }
 
     private void EndCountdownAnimation()
     {
         gameObject.SetActive(false);
-        GameManager.Instance?.AudioManager.Play(AudioManager.GameSound.Sound.DayMusic);
+        if(SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            GameManager.Instance?.AudioManager.Play(AudioManager.GameSound.Sound.DayMusic);
+        }
+        else if(SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            GameManager.Instance?.AudioManager.Play(AudioManager.GameSound.Sound.NightMusic);
+        }
+
     }
 
     private void Update()

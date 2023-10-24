@@ -79,6 +79,17 @@ public class PauseController : MonoBehaviour
         OpenMenu(PauseMenu.Controls);
     }
 
+
+    // //ADDED BY ZACH TO FIX PERMANETLY LOCKED OUT OF CONTROLS//
+    public void CloseControls()
+    {
+            pauseMenus[(int)currentMenu].SetActive(false);
+            currentMenu = PauseMenu.Main;
+            pauseMenus[(int)currentMenu].SetActive(true);
+            EventSystem.current.SetSelectedGameObject(onMenuSelected[(int)currentMenu]?.gameObject);    
+
+    }
+
     public void Cancel()
     {
         if (currentMenu != PauseMenu.Main)

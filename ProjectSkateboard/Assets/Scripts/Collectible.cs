@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Collectible : MonoBehaviour
 {
-    [SerializeField, Tooltip("The points for collecting this collectable.")] private int collectableScore = 1000;
+    [SerializeField, Tooltip("The points for collecting this collectable.")] private int collectableScore = 10000;
     public static Action <int> OnCollectable;
     
     void OnTriggerEnter2D(Collider2D other)

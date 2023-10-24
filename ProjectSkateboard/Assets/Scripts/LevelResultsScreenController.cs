@@ -37,6 +37,13 @@ public class LevelResultsScreenController : MonoBehaviour
         GameManager.Instance?.LoadScene("TitleScreen");
     }
 
+    public void Continue()
+    {
+        GameManager.Instance?.AudioManager.StopAllSounds();
+        GameManager.Instance?.LoadScene("NightScene");
+    }
+
+
     private void OnDestroy()
     {
         LevelManager.OnLevelWin -= WinResults;

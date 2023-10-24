@@ -278,23 +278,23 @@ MonoBehaviour:
     loop: 0
   - sound: 4
     soundType: 1
-    audioClip: {fileID: 8300000, guid: 6c574194293eb2541a2eae39de1c55b0, type: 3}
+    audioClip: {fileID: 8300000, guid: b063a0b2040fe6445b4bd46e061f4204, type: 3}
     loop: 0
   - sound: 5
     soundType: 1
-    audioClip: {fileID: 8300000, guid: cad2d076aada4b14fbbb319236762e0c, type: 3}
+    audioClip: {fileID: 8300000, guid: 6c574194293eb2541a2eae39de1c55b0, type: 3}
     loop: 0
   - sound: 3
-    soundType: 1
-    audioClip: {fileID: 8300000, guid: b063a0b2040fe6445b4bd46e061f4204, type: 3}
-    loop: 0
+    soundType: 0
+    audioClip: {fileID: 8300000, guid: 6ead1d830428d42259aa404acdcf01d0, type: 3}
+    loop: 1
   - sound: 8
     soundType: 1
-    audioClip: {fileID: 8300000, guid: 35b0043962ece4c229c4446a24745a17, type: 3}
+    audioClip: {fileID: 8300000, guid: 9c65dd9efec8b49bfa9e55a688fb7050, type: 3}
     loop: 0
   - sound: 9
     soundType: 1
-    audioClip: {fileID: 8300000, guid: a44b2764290739c4dbf7545600268a71, type: 3}
+    audioClip: {fileID: 8300000, guid: 6f86327d3e9084e24bf75c91a9f692d8, type: 3}
     loop: 0
   - sound: 2
     soundType: 0
@@ -306,15 +306,27 @@ MonoBehaviour:
     loop: 1
   - sound: 6
     soundType: 1
-    audioClip: {fileID: 8300000, guid: 0a59b0b9634924352af57ba362beff3b, type: 3}
+    audioClip: {fileID: 8300000, guid: cad2d076aada4b14fbbb319236762e0c, type: 3}
     loop: 0
   - sound: 10
     soundType: 1
-    audioClip: {fileID: 8300000, guid: 8a7770669f1fd4114b81a667cd713e5e, type: 3}
+    audioClip: {fileID: 8300000, guid: a44b2764290739c4dbf7545600268a71, type: 3}
     loop: 0
   - sound: 7
     soundType: 1
-    audioClip: {fileID: 8300000, guid: 9c65dd9efec8b49bfa9e55a688fb7050, type: 3}
+    audioClip: {fileID: 8300000, guid: 0a59b0b9634924352af57ba362beff3b, type: 3}
+    loop: 0
+  - sound: 11
+    soundType: 1
+    audioClip: {fileID: 8300000, guid: 8a7770669f1fd4114b81a667cd713e5e, type: 3}
+    loop: 0
+  - sound: 12
+    soundType: 1
+    audioClip: {fileID: 8300000, guid: fca75dbe54ed14a2a8598fdc9abc4e24, type: 3}
+    loop: 0
+  - sound: 13
+    soundType: 1
+    audioClip: {fileID: 8300000, guid: ef0543cac610c4552a51ea55e0f1ec40, type: 3}
     loop: 0
 --- !u!1 &6435035021919589681
 GameObject:

@@ -66,6 +66,10 @@ public class CollectableDisplay : MonoBehaviour
         AnimateCollectableImage(collectableImages[currentCount]);
         currentCount++;
         GameManager.Instance?.AudioManager.Play(AudioManager.GameSound.Sound.CollectCD);
+        if(currentCount >= 3)
+        {
+                    GameManager.Instance?.AudioManager.Play(AudioManager.GameSound.Sound.CollectCD);
+        }
 
     }
 

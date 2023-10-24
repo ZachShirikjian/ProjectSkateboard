@@ -16,7 +16,7 @@ public class StartingObjectiveManager : MonoBehaviour
 
     [SerializeField, Tooltip("The delay before the level countdown.")] private float countdownDelay = 3f;
     [SerializeField, Tooltip("The number of seconds to start counting down from.")] private int countdownTime = 3;
-    [SerializeField, Tooltip("The speed of which to countdown from.")] private float countdownRate = 0.25f;
+    [SerializeField, Tooltip("The speed of which to countdown from.")] private float countdownRate = 1f;
 
     private bool countdownActive;
     private float currentCountdownTime;
@@ -49,7 +49,6 @@ public class StartingObjectiveManager : MonoBehaviour
     {
         countdownActive = true;
         countdownText.text = totalCountdownTime.ToString();
-        GameManager.Instance?.AudioManager.Play(AudioManager.GameSound.Sound.Countdown);
     }
 
     private void EndCountdownAnimation()
@@ -76,8 +75,14 @@ public class StartingObjectiveManager : MonoBehaviour
             {
                 totalCountdownTime--;
                 currentCountdownTime = 0f;
+                //GameManager.Instance?.AudioManager.Play(AudioManager.GameSound.Sound.Countdown);
+
                 if (totalCountdownTime == 0)
+                {
                     countdownText.text = "Go!";
+                    GameManager.Instance?.AudioManager.Play(AudioManager.GameSound.Sound.CountdownGO);
+
+                }
 
                 else if(totalCountdownTime == -1)
                 {
@@ -88,6 +93,7 @@ public class StartingObjectiveManager : MonoBehaviour
 
                 else
                     countdownText.text = totalCountdownTime.ToString();
+                    GameManager.Instance?.AudioManager.Play(AudioManager.GameSound.Sound.Countdown);
             }
         }
     }

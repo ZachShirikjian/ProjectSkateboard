@@ -326,7 +326,11 @@ MonoBehaviour:
     loop: 0
   - sound: 13
     soundType: 1
-    audioClip: {fileID: 8300000, guid: ef0543cac610c4552a51ea55e0f1ec40, type: 3}
+    audioClip: {fileID: 8300000, guid: d7201668f2a5e42b2b1ff60ef147d068, type: 3}
+    loop: 0
+  - sound: 14
+    soundType: 1
+    audioClip: {fileID: 8300000, guid: 48a43c2416fe24d7aa1a282e6b4b6ff1, type: 3}
     loop: 0
 --- !u!1 &6435035021919589681
 GameObject:

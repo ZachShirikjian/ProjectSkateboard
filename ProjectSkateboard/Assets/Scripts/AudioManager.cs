@@ -24,7 +24,8 @@ public class AudioManager : MonoBehaviour
             ResultsWin,
             ResultsFail,
             DayToNightTransition,
-            Countdown
+            Countdown,
+            CountdownGO
         }
 
         [Tooltip("The sound to play.")] public Sound sound; 

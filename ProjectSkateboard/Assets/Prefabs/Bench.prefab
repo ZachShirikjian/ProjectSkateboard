@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9046760083552657271}
   - component: {fileID: 4278807663346853838}
   - component: {fileID: 7731568434409190745}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bench
   m_TagString: Rail
   m_Icon: {fileID: 0}

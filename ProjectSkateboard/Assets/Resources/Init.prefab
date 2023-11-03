@@ -228,6 +228,7 @@ MonoBehaviour:
   loaderCanvas: {fileID: 16765009255564273}
   progressBar: {fileID: 7745446121199985682}
   altTrackSelected: 0
+  altTrackSelected2: 0
 --- !u!1 &6127884417200361332
 GameObject:
   m_ObjectHideFlags: 0
@@ -335,7 +336,7 @@ MonoBehaviour:
     loop: 0
   - sound: 15
     soundType: 0
-    audioClip: {fileID: 8300000, guid: 7ff9ebaa561974510a12fb6d6e874ad2, type: 3}
+    audioClip: {fileID: 8300000, guid: 5cf2128b87bf142b89d3f63d4510202a, type: 3}
     loop: 0
   - sound: 16
     soundType: 0

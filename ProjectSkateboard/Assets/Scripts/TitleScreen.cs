@@ -91,7 +91,7 @@ public class TitleScreen : MonoBehaviour
         }
         else if( GameManager.Instance?.altTrackSelected2 == true)
         {
-            GameManager.Instance.altTrackSelected2 = false;
+            GameManager.Instance.altTrackSelected2  = false;
         }
     }
 }

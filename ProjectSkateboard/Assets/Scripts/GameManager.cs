@@ -16,6 +16,9 @@ public class GameManager : MonoBehaviour
     private float loadMaxDelta = 3f;
     private bool loadingScene = false;
 
+    public bool altTrackSelected = false;
+    public bool altTrackSelected2 = false;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)

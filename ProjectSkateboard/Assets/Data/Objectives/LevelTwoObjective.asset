@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: LevelTwoObjective
   m_EditorClassIdentifier: 
   objectiveType: {fileID: 11400000, guid: 237e9df383196483c84627de77ff9cff, type: 2}
-  timeLimit: 60
+  timeLimit: 90
   scoreValue: 500000

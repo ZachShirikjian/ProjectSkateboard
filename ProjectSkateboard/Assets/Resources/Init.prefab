@@ -229,6 +229,7 @@ MonoBehaviour:
   progressBar: {fileID: 7745446121199985682}
   altTrackSelected: 0
   altTrackSelected2: 0
+  altTrackSelected3: 0
 --- !u!1 &6127884417200361332
 GameObject:
   m_ObjectHideFlags: 0
@@ -340,7 +341,11 @@ MonoBehaviour:
     loop: 0
   - sound: 16
     soundType: 0
-    audioClip: {fileID: 8300000, guid: 48a43c2416fe24d7aa1a282e6b4b6ff1, type: 3}
+    audioClip: {fileID: 8300000, guid: c51bd25cc0411413ca8a2f420514a636, type: 3}
+    loop: 0
+  - sound: 17
+    soundType: 0
+    audioClip: {fileID: 8300000, guid: 53f84e61b164e43e0aa4a00ddfc18f14, type: 3}
     loop: 0
 --- !u!1 &6435035021919589681
 GameObject:

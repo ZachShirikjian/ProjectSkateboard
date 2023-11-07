@@ -21,12 +21,14 @@ public class LevelResultsScreenController : MonoBehaviour
 
     private void WinResults()
     {
+        GameManager.Instance?.AudioManager.StopAllSounds();
         GameManager.Instance?.AudioManager.PlayOneShot(AudioManager.GameSound.Sound.ResultsWin);
         winScreen.gameObject.SetActive(true);
     }
 
     private void FailResults()
     {
+        GameManager.Instance?.AudioManager.StopAllSounds();
         GameManager.Instance?.AudioManager.PlayOneShot(AudioManager.GameSound.Sound.ResultsFail);
         failScreen.gameObject.SetActive(true);
     }

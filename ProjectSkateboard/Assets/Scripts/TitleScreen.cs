@@ -94,4 +94,18 @@ public class TitleScreen : MonoBehaviour
             GameManager.Instance.altTrackSelected2  = false;
         }
     }
+
+
+    public void SwitchMusic3()
+    {
+        Debug.Log("Play AMEN TYPE BEAT");
+        if(GameManager.Instance?.altTrackSelected3 == false)
+        {
+            GameManager.Instance.altTrackSelected3 = true;
+        }
+        else if( GameManager.Instance?.altTrackSelected3 == true)
+        {
+            GameManager.Instance.altTrackSelected3  = false;
+        }
+    }
 }

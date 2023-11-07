@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
 
     public bool altTrackSelected = false;
     public bool altTrackSelected2 = false;
+    public bool altTrackSelected3 = false;
 
     private void Awake()
     {

@@ -25,7 +25,10 @@ public class AudioManager : MonoBehaviour
             ResultsFail,
             DayToNightTransition,
             Countdown,
-            CountdownGO
+            CountdownGO,
+            AltDayMusic,
+            AltDayMusic2,
+            AltDayMusic3
         }
 
         [Tooltip("The sound to play.")] public Sound sound; 
@@ -34,7 +37,7 @@ public class AudioManager : MonoBehaviour
         [Tooltip("If true, the sound loops when played.")] public bool loop;
     }
 
-    [SerializeField, Tooltip("The master list of all sounds in the game.")] private GameSound[] soundMasterList;
+    [SerializeField, Tooltip("The master list of all sounds in the game.")] public GameSound[] soundMasterList;
 
     private AudioSource musicSource, sfxSource;
 

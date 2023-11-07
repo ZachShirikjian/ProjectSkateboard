@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e837e615f7977f418f93e1bd0f6c938, type: 3}
   m_Name: SoulGrind
   m_EditorClassIdentifier: 
-  name: Soul Grind
+  name: Blizzard Grind
   score: 800
   comboSprite: {fileID: -429111463, guid: ee67a4ea5db384b7a9a8dd096d25419e, type: 3}
   comboDuration: 0.75

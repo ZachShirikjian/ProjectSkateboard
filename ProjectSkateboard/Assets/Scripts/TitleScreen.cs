@@ -5,9 +5,14 @@ using TMPro;
 
 public class TitleScreen : MonoBehaviour
 {
+    // public bool altTrackSelected;
+    // public bool altTrack2Selected;
+    public static GameManager Instance { get; private set; }
+    public AudioManager AudioManager { get; private set; }
     //Reference to CreditsPanel
     public GameObject creditsPanel;
     public GameObject controlsPanel;
+    public GameObject musicMenu;
 
     [SerializeField, Tooltip("The local high score text.")] private TextMeshProUGUI highScoreText;
 
@@ -16,6 +21,7 @@ public class TitleScreen : MonoBehaviour
     {
         creditsPanel.SetActive(false);
         controlsPanel.SetActive(false);
+        musicMenu.SetActive(false);
 
         highScoreText.text = "High Score: " + PlayerPrefs.GetFloat("LocalHighScore").ToString("n0") + " Points";
     }
@@ -52,5 +58,54 @@ public class TitleScreen : MonoBehaviour
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #endif
+    }
+
+    public void OpenMusicMenu()
+    {
+        musicMenu.SetActive(true);
+    }
+    public void CloseMusicMenu()
+    {
+        musicMenu.SetActive(false);
+    }
+
+    public void SwitchMusic()
+    {
+        Debug.Log("Play PITCH BLACK");
+        if( GameManager.Instance?.altTrackSelected == false)
+        {
+            GameManager.Instance.altTrackSelected = true;
+        }
+        else if( GameManager.Instance?.altTrackSelected == true)
+        {
+            GameManager.Instance.altTrackSelected = false;
+        }
+    }
+
+    public void SwitchMusic2()
+    {
+        Debug.Log("Play RIDE THE RAILS");
+        if(GameManager.Instance?.altTrackSelected2 == false)
+        {
+            GameManager.Instance.altTrackSelected2 = true;
+        }
+        else if( GameManager.Instance?.altTrackSelected2 == true)
+        {
+            GameManager.Instance.altTrackSelected2  = false;
+        }
+    }
+
+
+    public void SwitchMusic3()
+    {
+        Debug.Log("Play AMEN TYPE BEAT");
+        if(GameManager.Instance?.altTrackSelected3 == false)
+        {
+            GameManager.Instance.altTrackSelected3 = true;
+        }
+        else if( GameManager.Instance?.altTrackSelected3 == true)
+        {
+            GameManager.Instance.altTrackSelected3  = false;
+        }
     }
 }

@@ -56,7 +56,22 @@ public class StartingObjectiveManager : MonoBehaviour
         gameObject.SetActive(false);
         if(SceneManager.GetActiveScene().buildIndex == 1)
         {
-            GameManager.Instance?.AudioManager.Play(AudioManager.GameSound.Sound.DayMusic);
+            if(GameManager.Instance?.altTrackSelected == true && GameManager.Instance?.altTrackSelected2 == false && GameManager.Instance?.altTrackSelected3 == false)
+            {
+                        GameManager.Instance?.AudioManager.Play(AudioManager.GameSound.Sound.AltDayMusic);
+            }
+            else if(GameManager.Instance?.altTrackSelected2 == true && GameManager.Instance?.altTrackSelected == false && GameManager.Instance?.altTrackSelected3 == false)
+            {
+                        GameManager.Instance?.AudioManager.Play(AudioManager.GameSound.Sound.AltDayMusic2);
+            }
+            else if(GameManager.Instance?.altTrackSelected3 == true && GameManager.Instance?.altTrackSelected == false && GameManager.Instance?.altTrackSelected2 == false)
+            {
+                                        GameManager.Instance?.AudioManager.Play(AudioManager.GameSound.Sound.AltDayMusic3);
+            }
+            else if(GameManager.Instance?.altTrackSelected == false && GameManager.Instance?.altTrackSelected2 == false && GameManager.Instance?.altTrackSelected3 == false)
+            {
+               GameManager.Instance?.AudioManager.Play(AudioManager.GameSound.Sound.DayMusic);
+            }
         }
         else if(SceneManager.GetActiveScene().buildIndex == 2)
         {

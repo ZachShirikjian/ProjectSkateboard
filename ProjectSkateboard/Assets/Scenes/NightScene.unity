@@ -1123,7 +1123,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 260978843}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -15362,6 +15362,11 @@ MonoBehaviour:
   debugAddScore: 0
   debugScoreValue: 750
   levelCleared: 0
+  playerTransform: {x: 0, y: 0, z: 0}
+  exitDoorTransform: {x: 0, y: 0, z: 0}
+  exitDoor: {fileID: 1011575236}
+  distance: 0
+  maxDistance: 0
 --- !u!4 &1922801822
 Transform:
   m_ObjectHideFlags: 0

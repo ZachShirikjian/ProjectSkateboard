@@ -52,8 +52,22 @@ public class GameTimer : MonoBehaviour
             }
 
             //If the current objective is to beat the level timer and the level has not been cleared yet, update the progress bar
-            if (LevelManager.Instance?.levelObjective.objectiveType.objectiveGoalType == GoalType.Escape && !LevelManager.Instance.IsLevelCleared())
-                LevelManager.Instance.progressBar.UpdateProgressBar((startingTime - currentTimeLeft) / startingTime);
+            
+            
+            //UPDATE PROGRESS BAR BASED ON DISTANCE BETWEEN PLAYER AND DOOR
+             if (LevelManager.Instance?.levelObjective.objectiveType.objectiveGoalType == GoalType.Escape && !LevelManager.Instance.IsLevelCleared())
+            //  LevelManager.Instance.progressBar.UpdateProgressBar(LevelManager.Instance.distance);
+            // Debug.Log((LevelManager.Instance.maxDistance -LevelManager.Instance.distance)/LevelManager.Instance.maxDistance);
+             if(((LevelManager.Instance.maxDistance -LevelManager.Instance.distance)/LevelManager.Instance.maxDistance) < 0.9)
+             {
+                LevelManager.Instance.progressBar.UpdateProgressBar((LevelManager.Instance.maxDistance -LevelManager.Instance.distance)/LevelManager.Instance.maxDistance);
+             }
+             else if(((LevelManager.Instance.maxDistance -LevelManager.Instance.distance)/LevelManager.Instance.maxDistance) >= 0.9)
+             {
+                Debug.Log("LEVEL COMPLETE");
+                LevelManager.Instance.progressBar.UpdateProgressBar(100);
+             }
+            //     LevelManager.Instance.progressBar.UpdateProgressBar((startingTime - currentTimeLeft) / startingTime);
         }
     }
 

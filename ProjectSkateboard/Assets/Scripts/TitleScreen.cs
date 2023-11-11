@@ -13,7 +13,7 @@ public class TitleScreen : MonoBehaviour
     public GameObject creditsPanel;
     public GameObject controlsPanel;
     public GameObject musicMenu;
-
+    public GameObject conceptArtMenu;
     [SerializeField, Tooltip("The local high score text.")] private TextMeshProUGUI highScoreText;
 
     // Start is called before the first frame update
@@ -22,7 +22,7 @@ public class TitleScreen : MonoBehaviour
         creditsPanel.SetActive(false);
         controlsPanel.SetActive(false);
         musicMenu.SetActive(false);
-
+        conceptArtMenu.SetActive(false);
         highScoreText.text = "High Score: " + PlayerPrefs.GetFloat("LocalHighScore").ToString("n0") + " Points";
     }
 
@@ -107,5 +107,15 @@ public class TitleScreen : MonoBehaviour
         {
             GameManager.Instance.altTrackSelected3  = false;
         }
+    }
+
+    public void OpenGallery()
+    {
+        conceptArtMenu.SetActive(true);   
+    }
+
+    public void CloseGallery()
+    {
+        conceptArtMenu.SetActive(false);
     }
 }

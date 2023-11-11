@@ -28,7 +28,7 @@ public class LevelManager : MonoBehaviour
     internal bool isGamePaused = false;
     private bool isGameActive = false;
     private bool levelEnded = false;
-    private bool levelCleared = false;
+    public bool levelCleared = false;
 
     private void Awake()
     {
@@ -90,7 +90,7 @@ public class LevelManager : MonoBehaviour
 
     private void ClearLevel() => levelCleared = true;
 
-    private async void EndLevel()
+    public async void EndLevel()
     {
         isGameActive = false;
         levelEnded = true;

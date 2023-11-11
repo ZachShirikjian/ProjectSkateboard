@@ -9,9 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87eff0ed69f665746b52bc60dd67c4d3, type: 3}
-  m_Name: LevelOneObjective
+  m_Script: {fileID: 11500000, guid: 9175197a3f46c724fabba6fdb62de041, type: 3}
+  m_Name: DefaultPlayerSettingsZach
   m_EditorClassIdentifier: 
-  objectiveType: {fileID: 11400000, guid: fd3681e47c078564d8250abc28c97115, type: 2}
-  timeLimit: 60
-  scoreValue: 1000000
+  moveSpeed: 20
+  airSpeed: 15
+  railSpeed: 12
+  rotationSpeed: 8
+  deceleration: 15
+  maxSpeed: 30
+  jumpForce: 15
+  comboInputDelay: 0.5
+  hypeModeTime: 5

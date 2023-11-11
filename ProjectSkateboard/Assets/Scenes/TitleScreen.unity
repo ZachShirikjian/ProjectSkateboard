@@ -651,7 +651,7 @@ GameObject:
   - component: {fileID: 82243272}
   - component: {fileID: 82243271}
   m_Layer: 5
-  m_Name: Slider (1)
+  m_Name: Slider2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -735,12 +735,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 1199834228}
-    m_SelectOnDown: {fileID: 1958586747}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnUp: {fileID: 712613501}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 1546528634}
+    m_SelectOnRight: {fileID: 1099960856}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -1553,12 +1553,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 1199834228}
-    m_SelectOnDown: {fileID: 1958586747}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnUp: {fileID: 745695912}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 1808356672}
+    m_SelectOnRight: {fileID: 353411477}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -1732,12 +1732,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 1199834228}
-    m_SelectOnDown: {fileID: 1958586747}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnUp: {fileID: 533029590}
+    m_SelectOnDown: {fileID: 230674656}
+    m_SelectOnLeft: {fileID: 1872873003}
+    m_SelectOnRight: {fileID: 745695912}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -1911,12 +1911,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 1199834228}
-    m_SelectOnDown: {fileID: 1958586747}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnUp: {fileID: 217341931}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 1099960856}
+    m_SelectOnRight: {fileID: 1808356672}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -2476,7 +2476,7 @@ GameObject:
   - component: {fileID: 353411477}
   - component: {fileID: 353411476}
   m_Layer: 5
-  m_Name: QuitMusicMenu
+  m_Name: QuitButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3355,7 +3355,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 43, y: 264}
+  m_AnchoredPosition: {x: 50, y: 264}
   m_SizeDelta: {x: 1000, y: 1000}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &426758252
@@ -3416,12 +3416,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 1199834228}
-    m_SelectOnDown: {fileID: 1958586747}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 1546528634}
+    m_SelectOnLeft: {fileID: 951847957}
+    m_SelectOnRight: {fileID: 712613501}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -3864,12 +3864,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 1199834228}
-    m_SelectOnDown: {fileID: 1958586747}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 217341931}
+    m_SelectOnLeft: {fileID: 2144061728}
+    m_SelectOnRight: {fileID: 951847957}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -4812,7 +4812,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 277, y: 264}
+  m_AnchoredPosition: {x: 275, y: 264}
   m_SizeDelta: {x: 1000, y: 1000}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &712613500
@@ -4873,12 +4873,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 1199834228}
-    m_SelectOnDown: {fileID: 1958586747}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 82243272}
+    m_SelectOnLeft: {fileID: 426758253}
+    m_SelectOnRight: {fileID: 1122843051}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -5577,12 +5577,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 1199834228}
-    m_SelectOnDown: {fileID: 1958586747}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnUp: {fileID: 1808356672}
+    m_SelectOnDown: {fileID: 951847957}
+    m_SelectOnLeft: {fileID: 217341931}
+    m_SelectOnRight: {fileID: 1546528634}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -6715,7 +6715,7 @@ GameObject:
   - component: {fileID: 951847957}
   - component: {fileID: 951847956}
   m_Layer: 5
-  m_Name: NightLevel (1)
+  m_Name: Skatepark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6799,12 +6799,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 1199834228}
-    m_SelectOnDown: {fileID: 1958586747}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 745695912}
+    m_SelectOnLeft: {fileID: 533029590}
+    m_SelectOnRight: {fileID: 426758253}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -7877,12 +7877,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 1199834228}
-    m_SelectOnDown: {fileID: 1958586747}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnUp: {fileID: 1872873003}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 82243272}
+    m_SelectOnRight: {fileID: 230674656}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -7972,7 +7972,7 @@ GameObject:
   - component: {fileID: 1122843051}
   - component: {fileID: 1122843050}
   m_Layer: 5
-  m_Name: OldTitle (1)
+  m_Name: OldLogos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7995,7 +7995,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 506, y: 264}
+  m_AnchoredPosition: {x: 500, y: 264}
   m_SizeDelta: {x: 1000, y: 1000}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1122843050
@@ -8056,12 +8056,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 1199834228}
-    m_SelectOnDown: {fileID: 1958586747}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 712613501}
+    m_SelectOnRight: {fileID: 1872873003}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -8659,10 +8659,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 1199834228}
-    m_SelectOnDown: {fileID: 1958586747}
+    m_SelectOnUp: {fileID: 1840501052}
+    m_SelectOnDown: {fileID: 1560679719}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -9948,10 +9948,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 1199834228}
-    m_SelectOnDown: {fileID: 1958586747}
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 1840501052}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -10180,7 +10180,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1516205361
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10200,15 +10200,15 @@ RectTransform:
   - {fileID: 426758251}
   - {fileID: 712613499}
   - {fileID: 1122843049}
-  - {fileID: 1872873001}
   - {fileID: 1099960854}
   - {fileID: 230674654}
   - {fileID: 1808356670}
   - {fileID: 211907792}
+  - {fileID: 1872873001}
   - {fileID: 217341929}
+  - {fileID: 745695910}
   - {fileID: 1546528632}
   - {fileID: 82243270}
-  - {fileID: 745695910}
   - {fileID: 1437587799}
   - {fileID: 1703088729}
   - {fileID: 486210496}
@@ -10643,12 +10643,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 1199834228}
-    m_SelectOnDown: {fileID: 1958586747}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnUp: {fileID: 426758253}
+    m_SelectOnDown: {fileID: 211907794}
+    m_SelectOnLeft: {fileID: 745695912}
+    m_SelectOnRight: {fileID: 82243272}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -11010,11 +11010,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
+    m_SelectOnUp: {fileID: 1201993253}
     m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnLeft: {fileID: 1201993253}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 2
   m_Colors:
@@ -12206,12 +12206,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 1199834228}
-    m_SelectOnDown: {fileID: 1958586747}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnUp: {fileID: 745695912}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 230674656}
+    m_SelectOnRight: {fileID: 211907794}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -12304,7 +12304,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1820523734
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12464,10 +12464,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 1199834228}
-    m_SelectOnDown: {fileID: 1958586747}
+    m_SelectOnUp: {fileID: 1433145025}
+    m_SelectOnDown: {fileID: 1201993253}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -12755,12 +12755,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 1199834228}
-    m_SelectOnDown: {fileID: 1958586747}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnUp: {fileID: 2144061728}
+    m_SelectOnDown: {fileID: 1099960856}
+    m_SelectOnLeft: {fileID: 1122843051}
+    m_SelectOnRight: {fileID: 217341931}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -14110,12 +14110,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 1199834228}
-    m_SelectOnDown: {fileID: 1958586747}
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 1872873003}
     m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnRight: {fileID: 533029590}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}

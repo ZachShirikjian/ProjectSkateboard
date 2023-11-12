@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 public class TitleScreen : MonoBehaviour
 {
     // public bool altTrackSelected;
@@ -12,18 +13,25 @@ public class TitleScreen : MonoBehaviour
     //Reference to CreditsPanel
     public GameObject creditsPanel;
     public GameObject controlsPanel;
+    public GameObject extrasPanel;
     public GameObject musicMenu;
     public GameObject conceptArtMenu;
+
+    //Reference to PreviewImage GameObject
+    public Image previewImage;
+    public Sprite currentImage;
     [SerializeField, Tooltip("The local high score text.")] private TextMeshProUGUI highScoreText;
 
     // Start is called before the first frame update
     void Start()
     {
+        extrasPanel.SetActive(false);
         creditsPanel.SetActive(false);
         controlsPanel.SetActive(false);
         musicMenu.SetActive(false);
         conceptArtMenu.SetActive(false);
         highScoreText.text = "High Score: " + PlayerPrefs.GetFloat("LocalHighScore").ToString("n0") + " Points";
+        currentImage = null;
     }
 
     public void StartGame(string sceneName)
@@ -60,6 +68,16 @@ public class TitleScreen : MonoBehaviour
 #endif
     }
 
+    //EXTRAS MENU//
+    public void OpenExtras()
+    {
+        extrasPanel.SetActive(true);
+    }
+
+    public void CloseExtras()
+    {
+        extrasPanel.SetActive(false);
+    }
     public void OpenMusicMenu()
     {
         musicMenu.SetActive(true);
@@ -117,5 +135,10 @@ public class TitleScreen : MonoBehaviour
     public void CloseGallery()
     {
         conceptArtMenu.SetActive(false);
+    }
+
+    public void ChangePreviewImage()
+    {
+        previewImage.sprite = EventSystem.current.currentSelectedGameObject.GetComponent<Image>().sprite;
     }
 }

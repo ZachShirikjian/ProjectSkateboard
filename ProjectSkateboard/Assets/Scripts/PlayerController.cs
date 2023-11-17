@@ -32,12 +32,12 @@ public class PlayerController : MonoBehaviour
     private bool rotatingOnJump;
     private Vector3 targetRotation = Vector3.zero;
 
-    private List<Combo.ComboKey> currentComboInput = new List<Combo.ComboKey>();
+    [SerializeField] private List<Combo.ComboKey> currentComboInput = new List<Combo.ComboKey>();
     private Combo currentCombo;
     private float currentComboCooldown;
     private float comboDurationCooldown;
     private bool comboInputActive;
-    private bool comboDurationActive;
+    [SerializeField]private bool comboDurationActive;
     private bool hypeTimeReady;
 
     private float railMomentum;
@@ -130,6 +130,7 @@ public class PlayerController : MonoBehaviour
 
         if (comboInputActive)
         {
+            Debug.Log("RUNNING...");
             if (currentComboCooldown < playerSettings.comboInputDelay)
                 currentComboCooldown += Time.deltaTime;
             else
@@ -201,7 +202,7 @@ public class PlayerController : MonoBehaviour
                         return;
                     break;
             }
-
+            Debug.Log(currentComboInput);
             comboInputActive = true;
             CheckCombo();
         }
@@ -235,6 +236,7 @@ public class PlayerController : MonoBehaviour
                 if (combo.comboRequirement[i] != currentComboInput[i])
                 {
                     comboMatched = false;
+                    Debug.Log("INCORRECT COMBO");
                     break;
                 }
             }
@@ -243,6 +245,7 @@ public class PlayerController : MonoBehaviour
             {
                 currentCombo = combo;
                 currentComboCooldown = 0;
+                Debug.Log("CORRECT COMBO");
                 break;
             }
         }
@@ -258,6 +261,7 @@ public class PlayerController : MonoBehaviour
             OnComboSuccess?.Invoke(currentCombo);
             if(currentCombo.comboSprite != null)
             {
+                Debug.Log("SWITCH SPRITE");
                 playerSpriteRenderer.sprite = currentCombo.comboSprite;
                 comboDurationActive = true;
                 comboDurationCooldown = currentCombo.comboDuration;
@@ -278,6 +282,7 @@ public class PlayerController : MonoBehaviour
 
         if (comboDurationCooldown <= 0)
         {
+            Debug.Log("BEGIN NEW COMBO");
             comboDurationActive = false;
             playerSpriteRenderer.sprite = idleSprite;
         }

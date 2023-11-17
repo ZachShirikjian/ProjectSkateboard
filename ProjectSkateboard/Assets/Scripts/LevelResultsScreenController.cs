@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 public class LevelResultsScreenController : MonoBehaviour
 {
     [SerializeField, Tooltip("The win screen.")] private RectTransform winScreen;
@@ -44,7 +45,14 @@ public class LevelResultsScreenController : MonoBehaviour
     public void Continue()
     {
         GameManager.Instance?.AudioManager.StopAllSounds();
-        GameManager.Instance?.LoadScene("NightScene");
+        if(SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            GameManager.Instance?.LoadScene("NightScene");
+        }
+        else if(SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            GameManager.Instance?.LoadScene("TitleScreen");
+        }
     }
 
 

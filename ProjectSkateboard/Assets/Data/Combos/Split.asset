@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Split
   m_EditorClassIdentifier: 
   name: Split
-  score: 25000
+  score: 15000
   comboSprite: {fileID: 21300000, guid: 7429185099a66bc4f9810b384ee4efef, type: 3}
   comboDuration: 2.25
-  comboRequirement: 01000000010000000100000002000000020000000200000001000000
+  comboRequirement: 01000000010000000200000002000000

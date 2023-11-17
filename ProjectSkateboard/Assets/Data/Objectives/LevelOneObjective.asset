@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectiveType: {fileID: 11400000, guid: fd3681e47c078564d8250abc28c97115, type: 2}
   timeLimit: 60
-  scoreValue: 1000
+  scoreValue: 1000000

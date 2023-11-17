@@ -20,7 +20,8 @@ public class Objective : ScriptableObject
                 objectiveGoalText += scoreValue.ToString("n0") + " Points";
                 break;
             case GoalType.Escape:
-                objectiveGoalText += "Survive For " + timeLimit.ToString() + " Seconds";
+                // objectiveGoalText += "Survive For " + timeLimit.ToString() + " Seconds";
+                objectiveGoalText += "Find The Exit in 90 Seconds!";
                 break;
         }
 

@@ -28,7 +28,16 @@ public class LevelManager : MonoBehaviour
     internal bool isGamePaused = false;
     private bool isGameActive = false;
     private bool levelEnded = false;
-    private bool levelCleared = false;
+    public bool levelCleared = false;
+
+    //GET DISTANCE BETWEEN PLAYER AND THE EXIT DOOR
+    public Vector3 playerTransform;
+    public Vector3 exitDoorTransform;
+    private GameObject player;
+    public GameObject exitDoor;
+    public float distance;
+    public float maxDistance;
+    //GET DISTANCE BETWEEN PLAYER AND THE EXIT DOOR
 
     private void Awake()
     {
@@ -39,6 +48,15 @@ public class LevelManager : MonoBehaviour
     {
         gameTimer?.InitializeTimer(levelObjective.timeLimit);
         levelResultsScreenController.gameObject.SetActive(false);
+
+                //GET DISTANCE OF PLAYER AND EXIT DOOR
+                player = GameObject.FindWithTag("Player");
+                if(levelObjective.objectiveType.TimeOfDay == TimeOfDay.NIGHT) 
+                {
+                    exitDoorTransform = exitDoor.transform.position;
+                    maxDistance = 250.0f;
+                    Debug.Log(maxDistance);
+                }
     }
 
     private void OnEnable()
@@ -77,6 +95,11 @@ public class LevelManager : MonoBehaviour
             AddToTotalScore((int)debugScoreValue);
             debugAddScore = false;
         }
+
+        //UPDATE DISTANCE BETWEEN PLAYER AND EXIT DOOR
+        playerTransform = player.transform.position;
+        distance = Vector2.Distance(playerTransform,exitDoorTransform);
+      //  Debug.Log(distance);
     }
 
     /// <summary>
@@ -90,7 +113,7 @@ public class LevelManager : MonoBehaviour
 
     private void ClearLevel() => levelCleared = true;
 
-    private async void EndLevel()
+    public async void EndLevel()
     {
         isGameActive = false;
         levelEnded = true;
@@ -109,7 +132,7 @@ public class LevelManager : MonoBehaviour
             OnLevelFailed?.Invoke();
     }
 
-    public TimeOfDay GetTimeOfDay() => levelObjective.objectiveType.TimeOfDay;
+    public TimeOfDay GetTimeOfDay() => levelObjective.objectiveType.TimeOfDay; 
     public bool IsGameActive() => isGameActive;
     public bool IsLevelCleared() => levelCleared;
     public bool HasLevelEnded() => levelEnded;

@@ -93,11 +93,11 @@ public class TitleScreen : MonoBehaviour
     public void SwitchMusic()
     {
         Debug.Log("Play PITCH BLACK");
-        if( GameManager.Instance?.altTrackSelected == false)
+        if (GameManager.Instance?.altTrackSelected == false)
         {
             GameManager.Instance.altTrackSelected = true;
         }
-        else if( GameManager.Instance?.altTrackSelected == true)
+        else if (GameManager.Instance?.altTrackSelected == true)
         {
             GameManager.Instance.altTrackSelected = false;
         }
@@ -106,13 +106,13 @@ public class TitleScreen : MonoBehaviour
     public void SwitchMusic2()
     {
         Debug.Log("Play RIDE THE RAILS");
-        if(GameManager.Instance?.altTrackSelected2 == false)
+        if (GameManager.Instance?.altTrackSelected2 == false)
         {
             GameManager.Instance.altTrackSelected2 = true;
         }
-        else if( GameManager.Instance?.altTrackSelected2 == true)
+        else if (GameManager.Instance?.altTrackSelected2 == true)
         {
-            GameManager.Instance.altTrackSelected2  = false;
+            GameManager.Instance.altTrackSelected2 = false;
         }
     }
 
@@ -120,19 +120,19 @@ public class TitleScreen : MonoBehaviour
     public void SwitchMusic3()
     {
         Debug.Log("Play AMEN TYPE BEAT");
-        if(GameManager.Instance?.altTrackSelected3 == false)
+        if (GameManager.Instance?.altTrackSelected3 == false)
         {
             GameManager.Instance.altTrackSelected3 = true;
         }
-        else if( GameManager.Instance?.altTrackSelected3 == true)
+        else if (GameManager.Instance?.altTrackSelected3 == true)
         {
-            GameManager.Instance.altTrackSelected3  = false;
+            GameManager.Instance.altTrackSelected3 = false;
         }
     }
 
     public void OpenGallery()
     {
-        conceptArtMenu.SetActive(true);  
+        conceptArtMenu.SetActive(true);
         EventSystem.current.SetSelectedGameObject(galleryImage1);
     }
 

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TheAdventurer
   m_EditorClassIdentifier: 
   name: The Adventurer
-  score: 14000
+  score: 25000
   comboSprite: {fileID: 21300000, guid: 592a71ec224b7314d984ce54b5cd0969, type: 3}
   comboDuration: 1.5
-  comboRequirement: 020000000100000002000000
+  comboRequirement: 01000000020000000200000002000000

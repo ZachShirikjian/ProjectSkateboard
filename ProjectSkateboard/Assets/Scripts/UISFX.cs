@@ -32,7 +32,6 @@ public class UISFX : MonoBehaviour
     public void PlayClickSFX()
     {
         GameManager.Instance?.AudioManager.Play(AudioManager.GameSound.Sound.MenuButtonClick);
-        Debug.Log("TEST");
     }
 
     public void OpenGamepadTab()

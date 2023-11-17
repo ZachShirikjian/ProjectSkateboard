@@ -16,10 +16,11 @@ public class TitleScreen : MonoBehaviour
     public GameObject extrasPanel;
     public GameObject musicMenu;
     public GameObject conceptArtMenu;
+    public GameObject fullSizePanel;
+    public GameObject galleryImage1;
 
     //Reference to PreviewImage GameObject
     public Image previewImage;
-    public Sprite currentImage;
     [SerializeField, Tooltip("The local high score text.")] private TextMeshProUGUI highScoreText;
 
     // Start is called before the first frame update
@@ -30,8 +31,8 @@ public class TitleScreen : MonoBehaviour
         controlsPanel.SetActive(false);
         musicMenu.SetActive(false);
         conceptArtMenu.SetActive(false);
+        fullSizePanel.SetActive(false);
         highScoreText.text = "High Score: " + PlayerPrefs.GetFloat("LocalHighScore").ToString("n0") + " Points";
-        currentImage = null;
     }
 
     public void StartGame(string sceneName)
@@ -77,6 +78,8 @@ public class TitleScreen : MonoBehaviour
     public void CloseExtras()
     {
         extrasPanel.SetActive(false);
+        musicMenu.SetActive(false);
+        conceptArtMenu.SetActive(false);
     }
     public void OpenMusicMenu()
     {
@@ -129,7 +132,8 @@ public class TitleScreen : MonoBehaviour
 
     public void OpenGallery()
     {
-        conceptArtMenu.SetActive(true);   
+        conceptArtMenu.SetActive(true);  
+        EventSystem.current.SetSelectedGameObject(galleryImage1);
     }
 
     public void CloseGallery()
@@ -139,6 +143,13 @@ public class TitleScreen : MonoBehaviour
 
     public void ChangePreviewImage()
     {
+        // EventSystem.current.SetSelectedGameObject(EventSystem.current.currentSelectedGameObject);
         previewImage.sprite = EventSystem.current.currentSelectedGameObject.GetComponent<Image>().sprite;
+    }
+
+    public void CloseFullScreen()
+    {
+        fullSizePanel.SetActive(false);
+        // EventSystem.current.SetSelectedGameObject(galleryImage1);
     }
 }

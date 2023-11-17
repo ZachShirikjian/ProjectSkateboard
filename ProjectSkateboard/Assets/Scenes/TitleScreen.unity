@@ -4306,7 +4306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: Early Title Screen (Izzy Cochran)
-  imageSprite: {fileID: 21300000, guid: 32c6470fd1231479b8b4107802cd35c2, type: 3}
+  imageSprite: {fileID: 21300000, guid: 3f65f4e8bd6a445e3874b11ef05908f9, type: 3}
   fullImage: {fileID: 1163785078}
   imageText: {fileID: 1217396421}
   fullSizePanel: {fileID: 1130780985}
@@ -7522,7 +7522,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 21147fe0a466a41479e23f83de7e33e1, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1

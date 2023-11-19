@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class GalleryImage : MonoBehaviour
 {
@@ -14,16 +15,18 @@ public class GalleryImage : MonoBehaviour
     public Image fullImage;
     public TextMeshProUGUI imageText;
     public GameObject fullSizePanel;
+    
+    //Reference to PreviewImage
+    public Image previewImage;
     // Start is called before the first frame update
     void Start()
     {
-        fullSizePanel.SetActive(true);
+        fullSizePanel.SetActive(false);
     }
-
-    // Update is called once per frame
-    void Update()
+    public void ChangePreviewImage()
     {
-        
+        EventSystem.current.SetSelectedGameObject(this.gameObject);
+        previewImage.sprite = EventSystem.current.currentSelectedGameObject.GetComponent<Image>().sprite;
     }
 
     public void MaximizeImage()
@@ -31,6 +34,7 @@ public class GalleryImage : MonoBehaviour
         fullSizePanel.SetActive(true);
         fullImage.sprite = imageSprite;
         imageText.text = description.ToString();
+        EventSystem.current.SetSelectedGameObject(this.gameObject);
 
     }
 }

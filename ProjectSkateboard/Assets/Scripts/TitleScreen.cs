@@ -17,10 +17,7 @@ public class TitleScreen : MonoBehaviour
     public GameObject musicMenu;
     public GameObject conceptArtMenu;
     public GameObject fullSizePanel;
-    public GameObject galleryImage1;
 
-    //Reference to PreviewImage GameObject
-    public Image previewImage;
     [SerializeField, Tooltip("The local high score text.")] private TextMeshProUGUI highScoreText;
 
     // Start is called before the first frame update
@@ -133,23 +130,19 @@ public class TitleScreen : MonoBehaviour
     public void OpenGallery()
     {
         conceptArtMenu.SetActive(true);
-        EventSystem.current.SetSelectedGameObject(galleryImage1);
+        fullSizePanel.SetActive(false);
+        extrasPanel.SetActive(false);
     }
 
     public void CloseGallery()
     {
         conceptArtMenu.SetActive(false);
+        extrasPanel.SetActive(true);
     }
 
-    public void ChangePreviewImage()
-    {
-        // EventSystem.current.SetSelectedGameObject(EventSystem.current.currentSelectedGameObject);
-        previewImage.sprite = EventSystem.current.currentSelectedGameObject.GetComponent<Image>().sprite;
-    }
 
     public void CloseFullScreen()
     {
         fullSizePanel.SetActive(false);
-        // EventSystem.current.SetSelectedGameObject(galleryImage1);
     }
 }

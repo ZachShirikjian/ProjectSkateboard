@@ -17,6 +17,16 @@ public class TitleScreen : MonoBehaviour
     public GameObject musicMenu;
     public GameObject conceptArtMenu;
     public GameObject fullSizePanel;
+    public GameObject playButton;
+    public GameObject creditsButton;
+    public GameObject extrasButton;
+    public GameObject controlsButton;
+    public GameObject musicButton;
+    public GameObject galleryButton;
+    public GameObject track1Button;
+    public GameObject quitCreditsButton;
+    public GameObject img1Button;
+    public GameObject quitControlsMenu;
 
     [SerializeField, Tooltip("The local high score text.")] private TextMeshProUGUI highScoreText;
 
@@ -30,6 +40,7 @@ public class TitleScreen : MonoBehaviour
         conceptArtMenu.SetActive(false);
         fullSizePanel.SetActive(false);
         highScoreText.text = "High Score: " + PlayerPrefs.GetFloat("LocalHighScore").ToString("n0") + " Points";
+        EventSystem.current.SetSelectedGameObject(playButton);
     }
 
     public void StartGame(string sceneName)
@@ -41,21 +52,25 @@ public class TitleScreen : MonoBehaviour
     public void OpenControls()
     {
         controlsPanel.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(quitControlsMenu);
     }
 
     public void CloseControls()
     {
         controlsPanel.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(controlsButton);
     }
 
     public void OpenCredits()
     {
         creditsPanel.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(quitCreditsButton);
     }
 
     public void CloseCredits()
     {
         creditsPanel.SetActive(false);
+         EventSystem.current.SetSelectedGameObject(creditsButton);
     }
 
     public void QuitGame()
@@ -70,6 +85,7 @@ public class TitleScreen : MonoBehaviour
     public void OpenExtras()
     {
         extrasPanel.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(musicButton);
     }
 
     public void CloseExtras()
@@ -77,14 +93,17 @@ public class TitleScreen : MonoBehaviour
         extrasPanel.SetActive(false);
         musicMenu.SetActive(false);
         conceptArtMenu.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(extrasButton);
     }
     public void OpenMusicMenu()
     {
         musicMenu.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(track1Button);
     }
     public void CloseMusicMenu()
     {
         musicMenu.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(musicButton);
     }
 
     public void SwitchMusic()
@@ -132,12 +151,14 @@ public class TitleScreen : MonoBehaviour
         conceptArtMenu.SetActive(true);
         fullSizePanel.SetActive(false);
         extrasPanel.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(img1Button);
     }
 
     public void CloseGallery()
     {
         conceptArtMenu.SetActive(false);
         extrasPanel.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(galleryButton);
     }
 
 

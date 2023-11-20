@@ -28,7 +28,8 @@ public class AudioManager : MonoBehaviour
             CountdownGO,
             AltDayMusic,
             AltDayMusic2,
-            AltDayMusic3
+            AltDayMusic3,
+            AllCDCollected
         }
 
         [Tooltip("The sound to play.")] public Sound sound; 

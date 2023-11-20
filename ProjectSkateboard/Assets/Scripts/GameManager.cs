@@ -79,6 +79,9 @@ public class GameManager : MonoBehaviour
                 Debug.Log("TITLE");
                         GameManager.Instance?.AudioManager.StopAllSounds();
                                 GameManager.Instance?.AudioManager.Play(AudioManager.GameSound.Sound.TitlescreenMusic);
+                                altTrackSelected = false;
+                                altTrackSelected2 = false;
+                                altTrackSelected3 = false;
                                 break;
         }
     }

@@ -20,6 +20,7 @@ public class CollectableDisplay : MonoBehaviour
     private int currentCount;
 
     private List<Image> collectableImages = new List<Image>();
+    
 
     private void Start()
     {
@@ -68,7 +69,7 @@ public class CollectableDisplay : MonoBehaviour
         GameManager.Instance?.AudioManager.Play(AudioManager.GameSound.Sound.CollectCD);
         if(currentCount >= 3)
         {
-                    GameManager.Instance?.AudioManager.Play(AudioManager.GameSound.Sound.CollectCD);
+                    GameManager.Instance?.AudioManager.Play(AudioManager.GameSound.Sound.AllCDCollected);
         }
 
     }

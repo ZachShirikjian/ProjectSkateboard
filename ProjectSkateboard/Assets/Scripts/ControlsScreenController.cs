@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class ControlsScreenController : MonoBehaviour
 {
     [SerializeField, Tooltip("The list of control scheme diagrams.")] private GameObject[] controlSchemes;

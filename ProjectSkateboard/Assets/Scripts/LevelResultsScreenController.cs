@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 public class LevelResultsScreenController : MonoBehaviour
 {
     [SerializeField, Tooltip("The win screen.")] private RectTransform winScreen;
@@ -9,6 +10,7 @@ public class LevelResultsScreenController : MonoBehaviour
 
     private CanvasGroup resultsCanvasGroup;
     public GameObject continueButton;
+    public GameObject restartButton;
 
     private void Awake()
     {
@@ -27,6 +29,7 @@ public class LevelResultsScreenController : MonoBehaviour
         GameManager.Instance?.AudioManager.PlayOneShot(AudioManager.GameSound.Sound.ResultsWin);
         winScreen.gameObject.SetActive(true);
         continueButton.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(continueButton);
     }
 
     private void FailResults()
@@ -34,6 +37,7 @@ public class LevelResultsScreenController : MonoBehaviour
         GameManager.Instance?.AudioManager.StopAllSounds();
         GameManager.Instance?.AudioManager.PlayOneShot(AudioManager.GameSound.Sound.ResultsFail);
         failScreen.gameObject.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(restartButton);
     }
 
     public void BackToMain()

@@ -337,7 +337,7 @@ MonoBehaviour:
     loop: 0
   - sound: 15
     soundType: 0
-    audioClip: {fileID: 8300000, guid: 50cb3a461045a42758c30944df9e057d, type: 3}
+    audioClip: {fileID: 8300000, guid: 4114a58f6d4984174a5da8287ce911db, type: 3}
     loop: 0
   - sound: 16
     soundType: 0
@@ -346,6 +346,10 @@ MonoBehaviour:
   - sound: 17
     soundType: 0
     audioClip: {fileID: 8300000, guid: 53f84e61b164e43e0aa4a00ddfc18f14, type: 3}
+    loop: 0
+  - sound: 18
+    soundType: 1
+    audioClip: {fileID: 8300000, guid: 99f5de4531e77442cbf8b55c77878d4e, type: 3}
     loop: 0
 --- !u!1 &6435035021919589681
 GameObject:

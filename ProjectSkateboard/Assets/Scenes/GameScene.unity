@@ -1845,6 +1845,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5575555453329499239, guid: 5cfdabded14a74c9fa37e0e20ee4f881, type: 3}
+      propertyPath: m_SortingOrder
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 8418254696746816810, guid: 5cfdabded14a74c9fa37e0e20ee4f881, type: 3}
       propertyPath: m_Name
       value: RailingOnPipe
@@ -2875,7 +2879,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.300001, y: -0.00000047683716, z: -10}
+  m_LocalPosition: {x: -3.3, y: -0.00000047683716, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6140,7 +6144,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4783309050576288799, guid: f88ce7ac8b67a4d0dabd1f13b20cdebe, type: 3}
       propertyPath: m_SortingOrder
-      value: -1
+      value: -2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7118,7 +7122,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4783309050576288799, guid: f88ce7ac8b67a4d0dabd1f13b20cdebe, type: 3}
       propertyPath: m_SortingOrder
-      value: -1
+      value: -2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12636,7 +12640,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5575555453329499239, guid: 5cfdabded14a74c9fa37e0e20ee4f881, type: 3}
       propertyPath: m_SortingOrder
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 8418254696746816810, guid: 5cfdabded14a74c9fa37e0e20ee4f881, type: 3}
       propertyPath: m_Name

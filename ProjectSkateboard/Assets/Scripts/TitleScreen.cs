@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 public class TitleScreen : MonoBehaviour
 {
     // public bool altTrackSelected;
@@ -12,17 +13,22 @@ public class TitleScreen : MonoBehaviour
     //Reference to CreditsPanel
     public GameObject creditsPanel;
     public GameObject controlsPanel;
+    public GameObject extrasPanel;
     public GameObject musicMenu;
+    public GameObject conceptArtMenu;
+    public GameObject fullSizePanel;
 
     [SerializeField, Tooltip("The local high score text.")] private TextMeshProUGUI highScoreText;
 
     // Start is called before the first frame update
     void Start()
     {
+        extrasPanel.SetActive(false);
         creditsPanel.SetActive(false);
         controlsPanel.SetActive(false);
         musicMenu.SetActive(false);
-
+        conceptArtMenu.SetActive(false);
+        fullSizePanel.SetActive(false);
         highScoreText.text = "High Score: " + PlayerPrefs.GetFloat("LocalHighScore").ToString("n0") + " Points";
     }
 
@@ -60,6 +66,18 @@ public class TitleScreen : MonoBehaviour
 #endif
     }
 
+    //EXTRAS MENU//
+    public void OpenExtras()
+    {
+        extrasPanel.SetActive(true);
+    }
+
+    public void CloseExtras()
+    {
+        extrasPanel.SetActive(false);
+        musicMenu.SetActive(false);
+        conceptArtMenu.SetActive(false);
+    }
     public void OpenMusicMenu()
     {
         musicMenu.SetActive(true);
@@ -72,11 +90,11 @@ public class TitleScreen : MonoBehaviour
     public void SwitchMusic()
     {
         Debug.Log("Play PITCH BLACK");
-        if( GameManager.Instance?.altTrackSelected == false)
+        if (GameManager.Instance?.altTrackSelected == false)
         {
             GameManager.Instance.altTrackSelected = true;
         }
-        else if( GameManager.Instance?.altTrackSelected == true)
+        else if (GameManager.Instance?.altTrackSelected == true)
         {
             GameManager.Instance.altTrackSelected = false;
         }
@@ -85,13 +103,13 @@ public class TitleScreen : MonoBehaviour
     public void SwitchMusic2()
     {
         Debug.Log("Play RIDE THE RAILS");
-        if(GameManager.Instance?.altTrackSelected2 == false)
+        if (GameManager.Instance?.altTrackSelected2 == false)
         {
             GameManager.Instance.altTrackSelected2 = true;
         }
-        else if( GameManager.Instance?.altTrackSelected2 == true)
+        else if (GameManager.Instance?.altTrackSelected2 == true)
         {
-            GameManager.Instance.altTrackSelected2  = false;
+            GameManager.Instance.altTrackSelected2 = false;
         }
     }
 
@@ -99,13 +117,32 @@ public class TitleScreen : MonoBehaviour
     public void SwitchMusic3()
     {
         Debug.Log("Play AMEN TYPE BEAT");
-        if(GameManager.Instance?.altTrackSelected3 == false)
+        if (GameManager.Instance?.altTrackSelected3 == false)
         {
             GameManager.Instance.altTrackSelected3 = true;
         }
-        else if( GameManager.Instance?.altTrackSelected3 == true)
+        else if (GameManager.Instance?.altTrackSelected3 == true)
         {
-            GameManager.Instance.altTrackSelected3  = false;
+            GameManager.Instance.altTrackSelected3 = false;
         }
+    }
+
+    public void OpenGallery()
+    {
+        conceptArtMenu.SetActive(true);
+        fullSizePanel.SetActive(false);
+        extrasPanel.SetActive(false);
+    }
+
+    public void CloseGallery()
+    {
+        conceptArtMenu.SetActive(false);
+        extrasPanel.SetActive(true);
+    }
+
+
+    public void CloseFullScreen()
+    {
+        fullSizePanel.SetActive(false);
     }
 }

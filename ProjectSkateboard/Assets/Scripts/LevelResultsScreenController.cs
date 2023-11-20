@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class LevelResultsScreenController : MonoBehaviour
 {
     [SerializeField, Tooltip("The win screen.")] private RectTransform winScreen;
     [SerializeField, Tooltip("The fail screen.")] private RectTransform failScreen;
 
     private CanvasGroup resultsCanvasGroup;
+    public GameObject continueButton;
 
     private void Awake()
     {
@@ -17,6 +18,7 @@ public class LevelResultsScreenController : MonoBehaviour
 
         LevelManager.OnLevelWin += WinResults;
         LevelManager.OnLevelFailed += FailResults;
+        continueButton.SetActive(false);
     }
 
     private void WinResults()
@@ -24,6 +26,7 @@ public class LevelResultsScreenController : MonoBehaviour
         GameManager.Instance?.AudioManager.StopAllSounds();
         GameManager.Instance?.AudioManager.PlayOneShot(AudioManager.GameSound.Sound.ResultsWin);
         winScreen.gameObject.SetActive(true);
+        continueButton.SetActive(true);
     }
 
     private void FailResults()
@@ -42,7 +45,14 @@ public class LevelResultsScreenController : MonoBehaviour
     public void Continue()
     {
         GameManager.Instance?.AudioManager.StopAllSounds();
-        GameManager.Instance?.LoadScene("NightScene");
+        if(SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            GameManager.Instance?.LoadScene("NightScene");
+        }
+        else if(SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            GameManager.Instance?.LoadScene("TitleScreen");
+        }
     }
 
 

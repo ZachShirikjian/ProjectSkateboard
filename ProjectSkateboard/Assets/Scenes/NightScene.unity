@@ -15643,9 +15643,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bench
       objectReference: {fileID: 0}
+    - target: {fileID: 102012256251881308, guid: 1ed88024a776b7740b2e33c4f9d569c6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 229841995217509528, guid: 1ed88024a776b7740b2e33c4f9d569c6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 118.35835
+      value: 120.65
       objectReference: {fileID: 0}
     - target: {fileID: 229841995217509528, guid: 1ed88024a776b7740b2e33c4f9d569c6, type: 3}
       propertyPath: m_LocalPosition.y

@@ -112,6 +112,8 @@ public class TitleScreen : MonoBehaviour
         if (GameManager.Instance?.altTrackSelected == false)
         {
             GameManager.Instance.altTrackSelected = true;
+            GameManager.Instance.altTrackSelected2 = false;
+            GameManager.Instance.altTrackSelected3 = false;
         }
         else if (GameManager.Instance?.altTrackSelected == true)
         {
@@ -125,6 +127,8 @@ public class TitleScreen : MonoBehaviour
         if (GameManager.Instance?.altTrackSelected2 == false)
         {
             GameManager.Instance.altTrackSelected2 = true;
+            GameManager.Instance.altTrackSelected = false;
+            GameManager.Instance.altTrackSelected3 = false;
         }
         else if (GameManager.Instance?.altTrackSelected2 == true)
         {
@@ -135,10 +139,12 @@ public class TitleScreen : MonoBehaviour
 
     public void SwitchMusic3()
     {
-        Debug.Log("Play AMEN TYPE BEAT");
+        Debug.Log("Play HEARTBREAK BLUES");
         if (GameManager.Instance?.altTrackSelected3 == false)
         {
             GameManager.Instance.altTrackSelected3 = true;
+            GameManager.Instance.altTrackSelected2 = false;
+            GameManager.Instance.altTrackSelected = false;
         }
         else if (GameManager.Instance?.altTrackSelected3 == true)
         {

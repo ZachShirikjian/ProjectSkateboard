@@ -15,6 +15,7 @@ public class GalleryImage : MonoBehaviour
     public Image fullImage;
     public TextMeshProUGUI imageText;
     public GameObject fullSizePanel;
+    public GameObject closeButton;
     
     //Reference to PreviewImage
     public Image previewImage;
@@ -34,7 +35,6 @@ public class GalleryImage : MonoBehaviour
         fullSizePanel.SetActive(true);
         fullImage.sprite = imageSprite;
         imageText.text = description.ToString();
-        EventSystem.current.SetSelectedGameObject(this.gameObject);
-
+        EventSystem.current.SetSelectedGameObject(closeButton);
     }
 }

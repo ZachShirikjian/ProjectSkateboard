@@ -171,5 +171,6 @@ public class TitleScreen : MonoBehaviour
     public void CloseFullScreen()
     {
         fullSizePanel.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(img1Button);
     }
 }

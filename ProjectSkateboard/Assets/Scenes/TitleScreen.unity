@@ -465,6 +465,7 @@ MonoBehaviour:
   fullImage: {fileID: 1163785078}
   imageText: {fileID: 1217396421}
   fullSizePanel: {fileID: 1130780985}
+  closeButton: {fileID: 779768336}
   previewImage: {fileID: 884821073}
 --- !u!1 &91676694
 GameObject:
@@ -1233,6 +1234,7 @@ MonoBehaviour:
   fullImage: {fileID: 1163785078}
   imageText: {fileID: 1217396421}
   fullSizePanel: {fileID: 1130780985}
+  closeButton: {fileID: 779768336}
   previewImage: {fileID: 884821073}
 --- !u!1 &217341928
 GameObject:
@@ -1442,6 +1444,7 @@ MonoBehaviour:
   fullImage: {fileID: 1163785078}
   imageText: {fileID: 1217396421}
   fullSizePanel: {fileID: 1130780985}
+  closeButton: {fileID: 779768336}
   previewImage: {fileID: 884821073}
 --- !u!1 &229504762
 GameObject:
@@ -1787,6 +1790,7 @@ MonoBehaviour:
   fullImage: {fileID: 1163785078}
   imageText: {fileID: 1217396421}
   fullSizePanel: {fileID: 1130780985}
+  closeButton: {fileID: 779768336}
   previewImage: {fileID: 884821073}
 --- !u!1 &249587880
 GameObject:
@@ -2918,6 +2922,7 @@ MonoBehaviour:
   fullImage: {fileID: 1163785078}
   imageText: {fileID: 1217396421}
   fullSizePanel: {fileID: 1130780985}
+  closeButton: {fileID: 779768336}
   previewImage: {fileID: 884821073}
 --- !u!1 &426758250
 GameObject:
@@ -3127,6 +3132,7 @@ MonoBehaviour:
   fullImage: {fileID: 1163785078}
   imageText: {fileID: 1217396421}
   fullSizePanel: {fileID: 1130780985}
+  closeButton: {fileID: 779768336}
   previewImage: {fileID: 884821073}
 --- !u!1 &435691203
 GameObject:
@@ -3905,6 +3911,7 @@ MonoBehaviour:
   fullImage: {fileID: 1163785078}
   imageText: {fileID: 1217396421}
   fullSizePanel: {fileID: 1130780985}
+  closeButton: {fileID: 779768336}
   previewImage: {fileID: 884821073}
 --- !u!1 &551475654
 GameObject:
@@ -4909,6 +4916,7 @@ MonoBehaviour:
   fullImage: {fileID: 1163785078}
   imageText: {fileID: 1217396421}
   fullSizePanel: {fileID: 1130780985}
+  closeButton: {fileID: 779768336}
   previewImage: {fileID: 884821073}
 --- !u!1 &712974914
 GameObject:
@@ -5659,6 +5667,7 @@ MonoBehaviour:
   fullImage: {fileID: 1163785078}
   imageText: {fileID: 1217396421}
   fullSizePanel: {fileID: 1130780985}
+  closeButton: {fileID: 779768336}
   previewImage: {fileID: 884821073}
 --- !u!1 &779768336
 GameObject:
@@ -6842,6 +6851,7 @@ MonoBehaviour:
   fullImage: {fileID: 1163785078}
   imageText: {fileID: 1217396421}
   fullSizePanel: {fileID: 1130780985}
+  closeButton: {fileID: 779768336}
   previewImage: {fileID: 884821073}
 --- !u!1 &972844281
 GameObject:
@@ -7818,6 +7828,7 @@ MonoBehaviour:
   fullImage: {fileID: 1163785078}
   imageText: {fileID: 1217396421}
   fullSizePanel: {fileID: 1130780985}
+  closeButton: {fileID: 779768336}
   previewImage: {fileID: 884821073}
 --- !u!1 &1122843048
 GameObject:
@@ -8027,6 +8038,7 @@ MonoBehaviour:
   fullImage: {fileID: 1163785078}
   imageText: {fileID: 1217396421}
   fullSizePanel: {fileID: 1130780985}
+  closeButton: {fileID: 779768336}
   previewImage: {fileID: 884821073}
 --- !u!1 &1125516752
 GameObject:
@@ -10539,6 +10551,7 @@ MonoBehaviour:
   fullImage: {fileID: 1163785078}
   imageText: {fileID: 1217396421}
   fullSizePanel: {fileID: 1130780985}
+  closeButton: {fileID: 779768336}
   previewImage: {fileID: 884821073}
 --- !u!1 &1546602073
 GameObject:
@@ -12705,6 +12718,7 @@ MonoBehaviour:
   fullImage: {fileID: 1163785078}
   imageText: {fileID: 1217396421}
   fullSizePanel: {fileID: 1130780985}
+  closeButton: {fileID: 779768336}
   previewImage: {fileID: 884821073}
 --- !u!1 &1816846932
 GameObject:
@@ -12798,7 +12812,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1820523734
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13413,6 +13427,7 @@ MonoBehaviour:
   fullImage: {fileID: 1163785078}
   imageText: {fileID: 1217396421}
   fullSizePanel: {fileID: 1130780985}
+  closeButton: {fileID: 779768336}
   previewImage: {fileID: 884821073}
 --- !u!1 &1939713859
 GameObject:
@@ -14850,6 +14865,7 @@ MonoBehaviour:
   fullImage: {fileID: 1163785078}
   imageText: {fileID: 1217396421}
   fullSizePanel: {fileID: 1130780985}
+  closeButton: {fileID: 779768336}
   previewImage: {fileID: 884821073}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

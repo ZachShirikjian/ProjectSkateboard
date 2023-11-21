@@ -29,7 +29,8 @@ public class AudioManager : MonoBehaviour
             AltDayMusic,
             AltDayMusic2,
             AltDayMusic3,
-            AllCDCollected
+            AllCDCollected,
+            PoliceHey
         }
 
         [Tooltip("The sound to play.")] public Sound sound; 

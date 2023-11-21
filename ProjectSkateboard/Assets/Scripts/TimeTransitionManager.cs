@@ -31,7 +31,7 @@ public class TimeTransitionManager : MonoBehaviour
     private CanvasGroup transitionCanvasGroup;
     private TimeOfDay currentTime;
 
-        public static GameManager Instance { get; private set; }
+    public static GameManager Instance { get; private set; }
     public AudioManager AudioManager { get; private set; }
 
     private void Start()

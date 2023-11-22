@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Handstand
   m_EditorClassIdentifier: 
   name: Handstand
-  score: 4000
+  score: 10000
   comboSprite: {fileID: 1866904954, guid: ee67a4ea5db384b7a9a8dd096d25419e, type: 3}
   comboDuration: 1.75
   comboRequirement: 010000000200000001000000

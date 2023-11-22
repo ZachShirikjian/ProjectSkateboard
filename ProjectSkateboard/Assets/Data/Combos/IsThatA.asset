@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: IsThatA
   m_EditorClassIdentifier: 
   name: Is That A...?
-  score: 50000
+  score: 100000
   comboSprite: {fileID: 21300000, guid: ea39c1b80f747f8498dc481349988f09, type: 3}
   comboDuration: 1.5
   comboRequirement: 010000000200000001000000020000000100000002000000

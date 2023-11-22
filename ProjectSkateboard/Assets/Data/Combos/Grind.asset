@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Grind
   m_EditorClassIdentifier: 
   name: Grind
-  score: 2250
+  score: 5000
   comboSprite: {fileID: 21300000, guid: 39fea43058b0e49d18efb29d9fc47cc1, type: 3}
   comboDuration: 0
   comboRequirement: 00000000

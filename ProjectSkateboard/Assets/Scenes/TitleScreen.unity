@@ -10849,7 +10849,7 @@ MonoBehaviour:
   track1Button: {fileID: 1433145022}
   quitCreditsButton: {fileID: 1669606595}
   img1Button: {fileID: 2144061725}
-  quitControlsMenu: {fileID: 392102587}
+  keyboardButton: {fileID: 1939713859}
   highScoreText: {fileID: 1147445134}
 --- !u!114 &1546602079
 MonoBehaviour:

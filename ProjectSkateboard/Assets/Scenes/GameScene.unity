@@ -1857,6 +1857,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 342057316}
   m_CullTransparentMesh: 1
+--- !u!1 &347232093 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2702439187471190240, guid: a6d5d0e86fbfa524186455aee7243626, type: 3}
+  m_PrefabInstance: {fileID: 501340265}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &347232095 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9141526578034983428, guid: a6d5d0e86fbfa524186455aee7243626, type: 3}
+  m_PrefabInstance: {fileID: 501340265}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347232093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &368297773
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2698,6 +2714,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2740620305134155129, guid: a6d5d0e86fbfa524186455aee7243626, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2740620305134155129, guid: a6d5d0e86fbfa524186455aee7243626, type: 3}
+      propertyPath: m_Navigation.m_SelectOnLeft
+      value: 
+      objectReference: {fileID: 874344366}
+    - target: {fileID: 2740620305134155129, guid: a6d5d0e86fbfa524186455aee7243626, type: 3}
+      propertyPath: m_Navigation.m_SelectOnRight
+      value: 
+      objectReference: {fileID: 347232095}
+    - target: {fileID: 2740620305134155129, guid: a6d5d0e86fbfa524186455aee7243626, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2059297372}
@@ -2708,6 +2736,22 @@ PrefabInstance:
     - target: {fileID: 2740620305134155129, guid: a6d5d0e86fbfa524186455aee7243626, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: PauseController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093894147777791661, guid: a6d5d0e86fbfa524186455aee7243626, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 654021811}
+    - target: {fileID: 3093894147777791661, guid: a6d5d0e86fbfa524186455aee7243626, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 654021811}
+    - target: {fileID: 3093894147777791661, guid: a6d5d0e86fbfa524186455aee7243626, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayClickSFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093894147777791661, guid: a6d5d0e86fbfa524186455aee7243626, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayHoverSFX
       objectReference: {fileID: 0}
     - target: {fileID: 3918363810869910425, guid: a6d5d0e86fbfa524186455aee7243626, type: 3}
       propertyPath: m_Sprite
@@ -2814,8 +2858,36 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 654021811}
     - target: {fileID: 6069519618627835853, guid: a6d5d0e86fbfa524186455aee7243626, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 654021811}
+    - target: {fileID: 6069519618627835853, guid: a6d5d0e86fbfa524186455aee7243626, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: PlayClickSFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 6069519618627835853, guid: a6d5d0e86fbfa524186455aee7243626, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayHoverSFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 6133571126045059944, guid: a6d5d0e86fbfa524186455aee7243626, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6133571126045059944, guid: a6d5d0e86fbfa524186455aee7243626, type: 3}
+      propertyPath: m_Navigation.m_SelectOnLeft
+      value: 
+      objectReference: {fileID: 347232095}
+    - target: {fileID: 6133571126045059944, guid: a6d5d0e86fbfa524186455aee7243626, type: 3}
+      propertyPath: m_Navigation.m_SelectOnRight
+      value: 
+      objectReference: {fileID: 501340267}
+    - target: {fileID: 6133571126045059944, guid: a6d5d0e86fbfa524186455aee7243626, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 654021811}
+    - target: {fileID: 6133571126045059944, guid: a6d5d0e86fbfa524186455aee7243626, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OpenGamepadTab
       objectReference: {fileID: 0}
     - target: {fileID: 6885715576796466579, guid: a6d5d0e86fbfa524186455aee7243626, type: 3}
       propertyPath: m_Sprite
@@ -2841,6 +2913,18 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 9141526578034983428, guid: a6d5d0e86fbfa524186455aee7243626, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9141526578034983428, guid: a6d5d0e86fbfa524186455aee7243626, type: 3}
+      propertyPath: m_Navigation.m_SelectOnLeft
+      value: 
+      objectReference: {fileID: 501340267}
+    - target: {fileID: 9141526578034983428, guid: a6d5d0e86fbfa524186455aee7243626, type: 3}
+      propertyPath: m_Navigation.m_SelectOnRight
+      value: 
+      objectReference: {fileID: 874344366}
     - target: {fileID: 9141526578034983428, guid: a6d5d0e86fbfa524186455aee7243626, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -5727,6 +5811,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &874344366 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6133571126045059944, guid: a6d5d0e86fbfa524186455aee7243626, type: 3}
+  m_PrefabInstance: {fileID: 501340265}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &878138373
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14567,6 +14662,7 @@ MonoBehaviour:
   onMenuSelected:
   - {fileID: 927280090}
   - {fileID: 501340267}
+  keyboardButton: {fileID: 347232093}
 --- !u!114 &2059297373
 MonoBehaviour:
   m_ObjectHideFlags: 0

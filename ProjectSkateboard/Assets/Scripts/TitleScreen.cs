@@ -26,7 +26,7 @@ public class TitleScreen : MonoBehaviour
     public GameObject track1Button;
     public GameObject quitCreditsButton;
     public GameObject img1Button;
-    public GameObject quitControlsMenu;
+    public GameObject keyboardButton;
 
     [SerializeField, Tooltip("The local high score text.")] private TextMeshProUGUI highScoreText;
 
@@ -52,7 +52,7 @@ public class TitleScreen : MonoBehaviour
     public void OpenControls()
     {
         controlsPanel.SetActive(true);
-        EventSystem.current.SetSelectedGameObject(quitControlsMenu);
+        EventSystem.current.SetSelectedGameObject(keyboardButton);
     }
 
     public void CloseControls()

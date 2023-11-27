@@ -15,6 +15,7 @@ public class PauseController : MonoBehaviour
     private PauseMenu currentMenu;
 
     private PlayerControls playerControls;
+    public GameObject keyboardButton;
     private void Awake()
     {
         playerControls = new PlayerControls();
@@ -77,6 +78,7 @@ public class PauseController : MonoBehaviour
     public void ControlsMenu()
     {
         OpenMenu(PauseMenu.Controls);
+        EventSystem.current.SetSelectedGameObject(keyboardButton);
     }
 
 
